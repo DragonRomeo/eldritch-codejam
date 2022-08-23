@@ -1,3 +1,7 @@
+import cardsData from "./data/mythicCards/blue/index.js";
+
+console.log(cardsData[1])
+
 const ancientGods = document.querySelector('.ancient-gods');
 const difficultyContainer = document.querySelector('.difficulty-container');
 console.log(difficultyContainer);
