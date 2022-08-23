@@ -15,7 +15,11 @@ const ancientSelection = (event) => {
     if (target.classList.contains('ancient-item')) {
         target.classList.toggle('active');
         console.log('переключил');
-    }
+        if(target.classList.contains('active')) {
+            console.log(`содержит актив`)
+        }
+    } 
+
 }
 
 ancientGods.onclick = function (event) {
