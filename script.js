@@ -9,21 +9,26 @@ const lastCard = document.querySelector('.last-card');
 lastCard.style.backgroundImage = `url(${cardsData[0].cardFace})`;
 
 
-const ancientSelection = (event) => {
+const ancientToggleClass = (event) => {
     let target = event.target;
 
     if (target.classList.contains('ancient-item')) {
         target.classList.toggle('active');
         console.log('переключил');
-        if(target.classList.contains('active')) {
-            console.log(`содержит актив`)
+        console.log(`индес элемента = ${ancientGods.indexOf()}`)
+        if (target.classList.contains('active')) {
+            console.log(`содержит актив`);
+            ancientSelection(target);
         }
-    } 
+    }
+}
+
+const ancientSelection = (target) => {
 
 }
 
 ancientGods.onclick = function (event) {
-    ancientSelection(event);
+    ancientToggleClass(event);
 }
 
 
