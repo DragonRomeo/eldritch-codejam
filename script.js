@@ -8,7 +8,8 @@ const lastCard = document.querySelector('.last-card');
 // lastCard.style.backgroundImage = "url('../assets/MythicCards/blue/blue1.png')";
 lastCard.style.backgroundImage = `url(${cardsData[0].cardFace})`;
 
-ancientGods.onclick = function (event) {
+
+const ancientSelection = (event) => {
     let target = event.target;
 
     if (target.classList.contains('ancient-item')) {
@@ -17,6 +18,9 @@ ancientGods.onclick = function (event) {
     }
 }
 
+ancientGods.onclick = function (event) {
+    ancientSelection(event);
+}
 
 
 const difficultySelection = (event) => {
