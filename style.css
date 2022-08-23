@@ -31,7 +31,7 @@ main {
 h2 {
     /* font-family: 'lovecraft', sans-serif; */
     color: white;
-    
+
 }
 
 .ancient-wrapper {
@@ -57,11 +57,17 @@ h2 {
 .ancient-item {
     display: flex;
     height: 330px;
-    width: 268px;
+    width: 255px;
     background-repeat: no-repeat;
     background-size: contain;
     box-sizing: border-box;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.ancient-item.active {
+    transition: 0.5s;
+    border: 3px solid purple;
 }
 
 .ancient-item:hover {
