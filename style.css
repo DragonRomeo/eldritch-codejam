@@ -128,7 +128,7 @@ h3 {
     width: 25%;
     margin-left: 10%;
     align-items: center;
-    gap: 10%;
+    gap: 5%;
 }
 
 .current-stage {
@@ -145,6 +145,7 @@ h3 {
 
 .stage-text {
     color: white;
+    font-size: 20px;
 }
 
 .dots-container {
@@ -181,7 +182,7 @@ h3 {
     display: flex;
     background-image: url(/assets/mythicCardBackground.png);
     background-size: cover;
-    height: 250px;
+    height: 371px;
     width: 170px;
     cursor: pointer;
 }
@@ -244,7 +245,7 @@ h3 {
 .last-card {
     display: flex;
     background-size: cover;
-    height: 250px;
+    height: 371px;
     width: 170px;
     cursor: pointer;
 }
