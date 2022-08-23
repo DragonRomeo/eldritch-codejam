@@ -1,4 +1,6 @@
 const ancientGods = document.querySelector('.ancient-gods');
+const difficultyContainer = document.querySelector('.difficulty-container');
+console.log(difficultyContainer);
 
 ancientGods.onclick = function (event) {
     let target = event.target;
@@ -9,4 +11,13 @@ ancientGods.onclick = function (event) {
     }
 
     // console.log(target);
+}
+
+difficultyContainer.onclick = function(event) {
+    let target = event.target;
+
+    if( target.classList.contains('difficulty')) {
+        target.classList.toggle('active');
+        console.log(`сложность выбрана`)
+    }
 }
