@@ -17,15 +17,17 @@ ancientGods.onclick = function (event) {
     }
 }
 
-difficultyContainer.onclick = function(event) {
+
+
+const difficultySelection = (event) => {
     let target = event.target;
 
-    if( target.classList.contains('difficulty')) {
+    if (target.classList.contains('difficulty')) {
         target.classList.toggle('active');
         console.log(`сложность выбрана`)
-        if(target.textContent === 'Very easy') {
+        if (target.textContent === 'Very easy') {
             console.log('очень лёгкая')
-                    } else if (target.textContent === 'Easy'){
+        } else if (target.textContent === 'Easy') {
             console.log('лёгкая')
         } else if (target.textContent === 'Medium') {
             console.log('средняя')
@@ -35,4 +37,7 @@ difficultyContainer.onclick = function(event) {
             console.log('очень тяжелая')
         }
     }
+}
+difficultyContainer.onclick = function (event) {
+    difficultySelection(event);
 }
