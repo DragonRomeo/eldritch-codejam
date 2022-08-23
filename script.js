@@ -1,9 +1,6 @@
 import cardsData from "./data/mythicCards/blue/index2.js";
 
 
-console.log(cardsData[0].cardFace);
-
-
 const ancientGods = document.querySelector('.ancient-gods');
 const difficultyContainer = document.querySelector('.difficulty-container');
 const lastCard = document.querySelector('.last-card');
@@ -18,8 +15,6 @@ ancientGods.onclick = function (event) {
         target.classList.toggle('active');
         console.log('переключил');
     }
-
-    // console.log(target);
 }
 
 difficultyContainer.onclick = function(event) {
@@ -28,5 +23,16 @@ difficultyContainer.onclick = function(event) {
     if( target.classList.contains('difficulty')) {
         target.classList.toggle('active');
         console.log(`сложность выбрана`)
+        if(target.textContent === 'Very easy') {
+            console.log('очень лёгкая')
+                    } else if (target.textContent === 'Easy'){
+            console.log('лёгкая')
+        } else if (target.textContent === 'Medium') {
+            console.log('средняя')
+        } else if (target.textContent === 'Hard') {
+            console.log('тяжелая')
+        } else if (target.textContent === 'Very hard') {
+            console.log('очень тяжелая')
+        }
     }
 }
