@@ -31,7 +31,10 @@ main {
 h2 {
     /* font-family: 'lovecraft', sans-serif; */
     color: white;
+}
 
+h3 {
+    color: white;
 }
 
 .ancient-wrapper {
@@ -89,4 +92,32 @@ h2 {
 
 .ancient-item:nth-child(4) {
     background-image: url(/assets/Ancients/ShubNiggurath.png);
+}
+
+.difficulty-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-left: 10%;
+}
+
+.difficulty-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.difficulty {
+    color: white;
+    font-size: 20px;
+}
+
+.difficulty:hover {
+    transform: scale(1.3);
+    transition: transform .5s;
+}
+
+.difficulty.active {
+    transition: 0.5s;
+    border: 3px solid purple;
 }
