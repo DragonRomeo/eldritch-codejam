@@ -74,13 +74,9 @@ const createCommonDeck = () => {
         commonDeck.push(elem)
     }))
 
-    // console.log(commonDeck)
-
     cardsDataBrown.forEach((elem => {
         commonDeck.push(elem)
     }))
-
-    // console.log(commonDeck)
 
     cardsDataBlue.forEach((elem => {
         commonDeck.push(elem)
@@ -89,7 +85,7 @@ const createCommonDeck = () => {
     console.log(commonDeck)
     return commonDeck;
 }
-const commonDeck = createCommonDeck()
+
 
 const sortingDeck = (array) => {
     const newArray = array.slice(0);
@@ -101,7 +97,7 @@ const sortingDeck = (array) => {
     console.log(newArray)
     return newArray;
 }
-
+const commonDeck = createCommonDeck()
 const sortedDeck = sortingDeck(commonDeck);
 
 
@@ -192,7 +188,7 @@ const createMiniDecks = (sortedArray) => {
     let counterBrownCards = 0;
 
     sortedArray.forEach((elem, i) => {
-        if(sortedArray[i].color === 'green'){
+        if (sortedArray[i].color === 'green') {
             firstStageDeck.push(elem)
         }
     })
