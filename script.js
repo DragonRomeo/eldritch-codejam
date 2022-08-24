@@ -31,13 +31,13 @@ ancientGods.onclick = function (event) {
     ancientToggleClass(event);
 }
 
-// let ancientIndex;
+let ancientIndex;
 
 const getAncientIndex = (target) => {
     const dots = document.querySelectorAll('.dot');
     let index = ancientGodsArray.indexOf(target);
     console.log(`ancientGodIndex = ${index}`);
-    // ancientIndex = index;
+    ancientIndex = index;
     ancientLogger(index);
     numberOfColorCards(index);
 }
@@ -188,12 +188,12 @@ const veryEasyDiff = () => {
 
 
 const createMiniDecks = (array) => {
-    // const firstStageDeck = [];
-    // ancientsData.forEach((elem, i) => {
-    //     if(){
-    //         firstStageDeck.push(elem)
-    //     }
-    // })
+    const firstStageDeck = [];
+    sortedArray.forEach((elem, i) => {
+        if(){
+            firstStageDeck.push(elem)
+        }
+    })
     console.log(firstStageDeck)
 }
 
