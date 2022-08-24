@@ -1,5 +1,11 @@
-import cardsData from "./data/mythicCards/blue/index2.js";
+import cardsDataGreen from "./data/mythicCards/blue/index2.js";
+import cardsDataBrown from "./data/mythicCards/brown/index2.js";
+import cardsDataBlue from "./data/mythicCards/green/index2.js";
 import ancientsData from "./data/ancients.js";
+
+console.log(cardsDataGreen[0])
+console.log(cardsDataBrown[0])
+console.log(cardsDataBlue[0])
 
 
 const ancientGods = document.querySelector('.ancient-gods');
@@ -8,7 +14,7 @@ const ancientGodsArray = Array.from(ancientItems);
 const difficultyContainer = document.querySelector('.difficulty-container');
 const lastCard = document.querySelector('.last-card');
 
-lastCard.style.backgroundImage = `url(${cardsData[0].cardFace})`;
+lastCard.style.backgroundImage = `url(${cardsDataBlue[0].cardFace})`;
 
 
 const ancientToggleClass = (event) => {
