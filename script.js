@@ -62,9 +62,9 @@ const numberOfColorCards = (index) => {
     numberGreenCards = ancientsData[index].firstStage.greenCards + ancientsData[index].secondStage.greenCards + ancientsData[index].thirdStage.greenCards;
     console.log(`число зеленых карт = ${numberGreenCards}`)
     numberBrownCards = ancientsData[index].firstStage.brownCards + ancientsData[index].secondStage.brownCards + ancientsData[index].thirdStage.brownCards
-    console.log(`число зеленых карт = ${numberBrownCards}`)
+    console.log(`число коричневых карт = ${numberBrownCards}`)
     numberBlueCards = ancientsData[index].firstStage.blueCards + ancientsData[index].secondStage.blueCards + ancientsData[index].thirdStage.blueCards
-    console.log(`число зеленых карт = ${numberBlueCards}`)
+    console.log(`число синих карт = ${numberBlueCards}`)
     // console.log(`ancientIndex = ${ancientIndex}`)
 }
 
@@ -99,23 +99,35 @@ difficultyContainer.onclick = function (event) {
 }
 
 const veryEasyDiff = () => {
-
+    let greenCounter = 0;
+    let brownCounter = 0;
+    let blueCounter = 0;
     let sortedArray = [];
     cardsDataGreen.forEach((elem, i) => {
-        if (cardsDataGreen[i].difficulty === 'easy') {
-            sortedArray.push(elem)
+        if (cardsDataGreen[i].difficulty === 'easy' && greenCounter < numberGreenCards) {
+            sortedArray.push(elem);
+            greenCounter++;
         }
     })
+    console.log(`greenCounter = ${greenCounter}`);
+
     cardsDataBrown.forEach((elem, i) => {
-        if (cardsDataBrown[i].difficulty === 'easy') {
-            sortedArray.push(elem)
+        if (cardsDataBrown[i].difficulty === 'easy' && brownCounter < numberBrownCards) {
+            sortedArray.push(elem);
+            brownCounter++;
         }
+
     })
+    console.log(`brownCounter =${brownCounter}`);
+
     cardsDataBlue.forEach((elem, i) => {
-        if (cardsDataBlue[i].difficulty === 'easy') {
-            sortedArray.push(elem)
+        if (cardsDataBlue[i].difficulty === 'easy' && blueCounter < numberBlueCards) { //0 < 2
+            sortedArray.push(elem);
+            blueCounter++;
         }
     })
+    console.log(`blueCounter =${blueCounter}`);
+
     console.log(sortedArray)
 
     // sortedArray = cardsDataGreen.filter()
