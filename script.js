@@ -116,7 +116,13 @@ const veryEasyDiff = () => {
             sortedArray.push(elem);
             brownCounter++;
         }
+    })
 
+    cardsDataBrown.forEach((elem, i) => { //Если каунтер выше ещё не заполнен, то он добьёт оставшиеся карты нормальными
+        if (cardsDataBrown[i].difficulty === 'normal' && brownCounter < numberBrownCards) {
+            sortedArray.push(elem);
+            brownCounter++;
+        }
     })
     console.log(`brownCounter =${brownCounter}`);
 
