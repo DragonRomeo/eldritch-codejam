@@ -31,11 +31,13 @@ ancientGods.onclick = function (event) {
     ancientToggleClass(event);
 }
 
+// let ancientIndex;
+
 const getAncientIndex = (target) => {
     const dots = document.querySelectorAll('.dot');
     let index = ancientGodsArray.indexOf(target);
     console.log(`ancientGodIndex = ${index}`);
-    // return index;
+    // ancientIndex = index;
     ancientLogger(index);
     numberOfColorCards(index);
 }
@@ -52,14 +54,18 @@ const ancientLogger = (index) => {
         console.log(`Выбран Шуб-ниггурат`)
     }
 }
+let numberGreenCards;
+let numberBrownCards;
+let numberBlueCards;
 
 const numberOfColorCards = (index) => {
-    const numberGreenCards = ancientsData[index].firstStage.greenCards + ancientsData[index].secondStage.greenCards + ancientsData[index].thirdStage.greenCards;
+    numberGreenCards = ancientsData[index].firstStage.greenCards + ancientsData[index].secondStage.greenCards + ancientsData[index].thirdStage.greenCards;
     console.log(`число зеленых карт = ${numberGreenCards}`)
-    const numberBrownCards = ancientsData[index].firstStage.brownCards + ancientsData[index].secondStage.brownCards + ancientsData[index].thirdStage.brownCards
+    numberBrownCards = ancientsData[index].firstStage.brownCards + ancientsData[index].secondStage.brownCards + ancientsData[index].thirdStage.brownCards
     console.log(`число зеленых карт = ${numberBrownCards}`)
-    const numberBlueCards = ancientsData[index].firstStage.blueCards + ancientsData[index].secondStage.blueCards + ancientsData[index].thirdStage.blueCards
+    numberBlueCards = ancientsData[index].firstStage.blueCards + ancientsData[index].secondStage.blueCards + ancientsData[index].thirdStage.blueCards
     console.log(`число зеленых карт = ${numberBlueCards}`)
+    // console.log(`ancientIndex = ${ancientIndex}`)
 }
 
 
