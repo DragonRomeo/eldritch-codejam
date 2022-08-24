@@ -98,11 +98,13 @@ difficultyContainer.onclick = function (event) {
     difficultySelection(event);
 }
 
+const sortedArray = []
+
 const veryEasyDiff = () => {
     let greenCounter = 0;
     let brownCounter = 0;
     let blueCounter = 0;
-    let sortedArray = [];
+    // let sortedArray = [];
     cardsDataGreen.forEach((elem, i) => {
         if (cardsDataGreen[i].difficulty === 'easy' && greenCounter < numberGreenCards) {
             sortedArray.push(elem);
@@ -143,5 +145,7 @@ const veryEasyDiff = () => {
 
     console.log(sortedArray)
 
- 
 }
+
+
+
