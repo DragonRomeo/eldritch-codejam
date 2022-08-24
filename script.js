@@ -36,7 +36,7 @@ let ancientIndex;
 const getAncientIndex = (target) => {
     const dots = document.querySelectorAll('.dot');
     let index = ancientGodsArray.indexOf(target);
-    console.log(`ancientGodIndex = ${index}`);
+    // console.log(`ancientGodIndex = ${index}`);
     ancientIndex = index;
     ancientLogger(index);
     numberOfColorCards(index);
@@ -60,11 +60,11 @@ let numberBlueCards;
 
 const numberOfColorCards = (index) => {
     numberGreenCards = ancientsData[index].firstStage.greenCards + ancientsData[index].secondStage.greenCards + ancientsData[index].thirdStage.greenCards;
-    console.log(`число зеленых карт = ${numberGreenCards}`)
+    // console.log(`число зеленых карт = ${numberGreenCards}`)
     numberBrownCards = ancientsData[index].firstStage.brownCards + ancientsData[index].secondStage.brownCards + ancientsData[index].thirdStage.brownCards
-    console.log(`число коричневых карт = ${numberBrownCards}`)
+    // console.log(`число коричневых карт = ${numberBrownCards}`)
     numberBlueCards = ancientsData[index].firstStage.blueCards + ancientsData[index].secondStage.blueCards + ancientsData[index].thirdStage.blueCards
-    console.log(`число синих карт = ${numberBlueCards}`)
+    // console.log(`число синих карт = ${numberBlueCards}`)
     // console.log(`ancientIndex = ${ancientIndex}`)
 }
 
@@ -111,7 +111,7 @@ const difficultySelection = (event) => {
 
     if (target.classList.contains('difficulty')) {
         target.classList.toggle('active');
-        console.log(`сложность выбрана`)
+        // console.log(`сложность выбрана`)
         if (target.textContent === 'Very easy') {
             // console.log('очень лёгкая')
             console.log(`условия: из набора берутся все карты со снежинками, если карт не хватает то добираются обычные карты`)
@@ -154,7 +154,7 @@ const veryEasyDiff = () => {
             greenCounter++;
         }
     })
-    console.log(`greenCounter = ${greenCounter}`);
+    // console.log(`greenCounter = ${greenCounter}`);
 
     sortedDeck.forEach((elem, i) => {
         if (sortedDeck[i].difficulty === 'easy' && brownCounter < numberBrownCards) {
@@ -169,7 +169,7 @@ const veryEasyDiff = () => {
             brownCounter++;
         }
     })
-    console.log(`brownCounter =${brownCounter}`);
+    // console.log(`brownCounter =${brownCounter}`);
 
     sortedDeck.forEach((elem, i) => {
         if (sortedDeck[i].difficulty === 'easy' && blueCounter < numberBlueCards) { //0 < 2
@@ -177,7 +177,7 @@ const veryEasyDiff = () => {
             blueCounter++;
         }
     })
-    console.log(`blueCounter =${blueCounter}`);
+    // console.log(`blueCounter =${blueCounter}`);
 
     console.log(sortedArray)
     // createMiniDecks(sortedArray)
