@@ -102,7 +102,7 @@ const sortingDeck = (array) => {
     return newArray;
 }
 
-sortingDeck(commonDeck);
+const sortedDeck = sortingDeck(commonDeck);
 
 
 const difficultySelection = (event) => {
