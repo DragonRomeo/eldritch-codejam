@@ -61,13 +61,15 @@ const numberOfColorCards = (index) => {
 
 const difficultySelection = (event) => {
     let target = event.target;
+    let difficulty;
 
     if (target.classList.contains('difficulty')) {
         target.classList.toggle('active');
         console.log(`сложность выбрана`)
         if (target.textContent === 'Very easy') {
-            console.log('очень лёгкая')
+            // console.log('очень лёгкая')
             console.log(`условия: из набора берутся все карты со снежинками, если карт не хватает то добираются обычные карты`)
+            difficulty = 'very easy';
         } else if (target.textContent === 'Easy') {
             console.log('лёгкая')
         } else if (target.textContent === 'Medium') {
@@ -78,6 +80,8 @@ const difficultySelection = (event) => {
             console.log('очень тяжелая')
         }
     }
+    console.log(difficulty)
+    return difficulty;
 }
 difficultyContainer.onclick = function (event) {
     difficultySelection(event);
