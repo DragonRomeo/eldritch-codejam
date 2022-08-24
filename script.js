@@ -16,10 +16,7 @@ const ancientToggleClass = (event) => {
 
     if (target.classList.contains('ancient-item')) {
         target.classList.toggle('active');
-        // console.log('переключил');
-        // console.log(`indexOf =${ancientGodsArray.indexOf(target)}`) ;
         if (target.classList.contains('active')) {
-            // console.log(`содержит актив`);
             ancientSelection(target);
         }
     }
@@ -34,8 +31,6 @@ const ancientSelection = (target) => {
     const stage1 = [ancientsData[index].firstStage.greenCards, ancientsData[index].firstStage.brownCards, ancientsData[index].firstStage.blueCards, ancientsData[index].secondStage.greenCards, ancientsData[index].secondStage.brownCards, ancientsData[index].secondStage.blueCards, ancientsData[index].thirdStage.greenCards, ancientsData[index].thirdStage.brownCards, ancientsData[index].thirdStage.blueCards,];
     console.log(stage1);
     dots.forEach((elem, i) => {
-        // console.log(dots[elem].textContent)
-        // dots[elem].textContent === stage1[i]
     })
     const getNameGods = [];
     const getStages = [];
