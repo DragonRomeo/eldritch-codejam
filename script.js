@@ -1,6 +1,6 @@
-import cardsDataGreen from "./data/mythicCards/blue/index2.js";
+import cardsDataGreen from "./data/mythicCards/green/index2.js";
 import cardsDataBrown from "./data/mythicCards/brown/index2.js";
-import cardsDataBlue from "./data/mythicCards/green/index2.js";
+import cardsDataBlue from "./data/mythicCards/blue/index2.js";
 import ancientsData from "./data/ancients.js";
 
 
@@ -9,6 +9,10 @@ const ancientItems = document.querySelectorAll('.ancient-item')
 const ancientGodsArray = Array.from(ancientItems);
 const difficultyContainer = document.querySelector('.difficulty-container');
 const lastCard = document.querySelector('.last-card');
+
+// console.log(`сложность гринКард 0 =  ${cardsDataGreen[0].difficulty}`)
+// console.log(cardsDataGreen[1].difficulty === 'easy')
+// console.log(cardsDataGreen[2].difficulty)
 
 lastCard.style.backgroundImage = `url(${cardsDataBlue[0].cardFace})`;
 
@@ -70,6 +74,7 @@ const difficultySelection = (event) => {
             // console.log('очень лёгкая')
             console.log(`условия: из набора берутся все карты со снежинками, если карт не хватает то добираются обычные карты`)
             difficulty = 'very easy';
+            veryEasyDiff()
         } else if (target.textContent === 'Easy') {
             console.log('лёгкая')
         } else if (target.textContent === 'Medium') {
@@ -85,4 +90,27 @@ const difficultySelection = (event) => {
 }
 difficultyContainer.onclick = function (event) {
     difficultySelection(event);
+}
+
+const veryEasyDiff = () => {
+
+    let sortedArray = [];
+    cardsDataGreen.forEach((elem, i) => {
+        if (cardsDataGreen[i].difficulty === 'easy') {
+            sortedArray.push(elem)
+        }
+    })
+    cardsDataBrown.forEach((elem, i) => {
+        if (cardsDataBrown[i].difficulty === 'easy') {
+            sortedArray.push(elem)
+        }
+    })
+    cardsDataBlue.forEach((elem, i) => {
+        if (cardsDataBlue[i].difficulty === 'easy') {
+            sortedArray.push(elem)
+        }
+    })
+    console.log(sortedArray)
+
+    // sortedArray = cardsDataGreen.filter()
 }
