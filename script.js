@@ -180,17 +180,19 @@ const veryEasyDiff = () => {
     console.log(`blueCounter =${blueCounter}`);
 
     console.log(sortedArray)
-    // sortingDeck(sortedArray)
+    // createMiniDecks(sortedArray)
 
 }
 
 
-
-
-const createMiniDecks = (array) => {
+const createMiniDecks = (sortedArray) => {
     const firstStageDeck = [];
+    let counterGreen = 0;
+    let counterBlueCards = 0;
+    let counterBrownCards = 0;
+
     sortedArray.forEach((elem, i) => {
-        if(){
+        if(sortedArray[i].color === 'green'){
             firstStageDeck.push(elem)
         }
     })
