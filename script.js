@@ -109,6 +109,13 @@ const veryEasyDiff = () => {
             greenCounter++;
         }
     })
+
+    cardsDataGreen.forEach((elem, i) => {
+        if (cardsDataGreen[i].difficulty === 'normal' && greenCounter < numberGreenCards) {
+            sortedArray.push(elem);
+            greenCounter++;
+        }
+    })
     console.log(`greenCounter = ${greenCounter}`);
 
     cardsDataBrown.forEach((elem, i) => {
@@ -136,5 +143,5 @@ const veryEasyDiff = () => {
 
     console.log(sortedArray)
 
-    // sortedArray = cardsDataGreen.filter()
+ 
 }
