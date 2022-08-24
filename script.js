@@ -144,8 +144,20 @@ const veryEasyDiff = () => {
     console.log(`blueCounter =${blueCounter}`);
 
     console.log(sortedArray)
+    sortingDeck(sortedArray)
 
 }
 
 
+const sortingDeck = (array) => {
+    const newArray = array.slice(0);
+
+    for (let i = (newArray.length - 1); i > 0; i -= 1) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[randomIndex]] = [newArray[randomIndex], newArray[i]];
+    }
+    console.log(newArray)
+    return newArray;
+
+}
 
