@@ -274,8 +274,13 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     console.log(firstStageDeck)
     console.log(secondStageDeck)
     console.log(thirdStageDeck)
-    console.log(`финальный массик из зеленых карт:`)
+    console.log(`финальный массив из остатка зеленых карт:`)
     console.log(greenDeck);
+    console.log(`финальный массив из остатка коричневых карт:`)
+    console.log(brownDeck);
+    console.log(`финальный массив из остатка синих карт:`)
+    console.log(blueDeck);
+    
 }
 
 //В GreenCard массиве остаётся 1 карта, которая не попадает в последний стейдж. То есть, он её там не видит, но и забрать не может?
