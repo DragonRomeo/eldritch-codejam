@@ -137,15 +137,15 @@ const veryEasyDiff = () => {
     let brownCounter = 0;
     let blueCounter = 0;
     // let sortedArray = [];
-    sortedDeck.forEach((elem, i) => {
-        if (sortedDeck[i].difficulty === 'easy' && greenCounter < numberGreenCards) {
+    sortedDeck.forEach((elem, i) => { //дописать в условие && sortedDeck[i].color === 'green'
+        if (sortedDeck[i].difficulty === 'easy' && sortedDeck[i].color === 'green' && greenCounter < numberGreenCards) {
             sortedArray.push(elem);
             greenCounter++;
         }
     })
 
     sortedDeck.forEach((elem, i) => {
-        if (sortedDeck[i].difficulty === 'normal' && greenCounter < numberGreenCards) {
+        if (sortedDeck[i].difficulty === 'normal' && sortedDeck[i].color === 'green'  && greenCounter < numberGreenCards) {
             sortedArray.push(elem);
             greenCounter++;
         }
@@ -153,14 +153,14 @@ const veryEasyDiff = () => {
     // console.log(`greenCounter = ${greenCounter}`);
 
     sortedDeck.forEach((elem, i) => {
-        if (sortedDeck[i].difficulty === 'easy' && brownCounter < numberBrownCards) {
+        if (sortedDeck[i].difficulty === 'easy' && sortedDeck[i].color === 'brown'  && brownCounter < numberBrownCards) {
             sortedArray.push(elem);
             brownCounter++;
         }
     })
 
     sortedDeck.forEach((elem, i) => { //Если каунтер выше ещё не заполнен, то он добьёт оставшиеся карты нормальными
-        if (sortedDeck[i].difficulty === 'normal' && brownCounter < numberBrownCards) {
+        if (sortedDeck[i].difficulty === 'normal' && sortedDeck[i].color === 'brown'  && brownCounter < numberBrownCards) {
             sortedArray.push(elem);
             brownCounter++;
         }
@@ -168,7 +168,7 @@ const veryEasyDiff = () => {
     // console.log(`brownCounter =${brownCounter}`);
 
     sortedDeck.forEach((elem, i) => {
-        if (sortedDeck[i].difficulty === 'easy' && blueCounter < numberBlueCards) { //0 < 2
+        if (sortedDeck[i].difficulty === 'easy' && sortedDeck[i].color === 'blue' && blueCounter < numberBlueCards) { //0 < 2
             sortedArray.push(elem);
             blueCounter++;
         }
