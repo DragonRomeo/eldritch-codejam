@@ -224,6 +224,7 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     let counterGreen = 0; //счетчик не должен превышать значение ancientsData[index].${first/second/third}Stage.greenCards
     let counterBlue = 0;
     let counterBrown = 0;
+    console.log(`===================================`)
 
     for (let i = 0; i < 3; i++) {
         counterGreen = 0;
@@ -244,20 +245,22 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
         greenDeck.forEach((elem, i) => {
             if (counterGreen < currentAncientStage.greenCards) {
                 currentDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
-                greenDeck.splice(i, 1);
-                counterGreen++;
+                greenDeck.splice(elem, 1);
+                
                 console.log(`текущая зелёная колода после убирания:`)
                 console.log(greenDeck);
+                counterGreen++;
             }
         })
-
-        // console.log(`${i}-й проход. Массив Зеленых карт сейчас выглядит так: (ниже)`)
-        
+            
 
         brownDeck.forEach((elem, i) => {
             if (counterBrown < currentAncientStage.brownCards) {
                 currentDeck.push(elem);
-                brownDeck.splice(i, 1);
+                brownDeck.splice(elem, 1);
+                
+                console.log(`текущая коричневая колода после убирания:`)
+                console.log(brownDeck);
                 counterBrown++;
             }
         })
@@ -265,10 +268,13 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
         blueDeck.forEach((elem, i) => {
             if (counterBlue < currentAncientStage.blueCards) {
                 currentDeck.push(elem);
-                blueDeck.splice(i, 1);
+                blueDeck.splice(elem, 1);
+                console.log(`текущая синяя колода после убирания:`)
+                console.log(blueDeck);
                 counterBlue++;
             }
         })
+        console.log(`==================================`)
     }
     console.log(`1я 2я и 3я колода по этапам:`)
     console.log(firstStageDeck)
