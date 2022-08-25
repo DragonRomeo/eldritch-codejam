@@ -89,6 +89,9 @@ const createCommonDeck = () => {
 
 const shuffleDeck = (array) => {
     const newArray = array.slice(0);
+    // const newArray = array;
+    console.log(`ФункцияПеремешки NewArray до перебора равно =`)
+    console.log(newArray)
 
     for (let i = (newArray.length - 1); i > 0; i -= 1) {
         const randomIndex = Math.floor(Math.random() * (i + 1));
@@ -205,10 +208,10 @@ const createColorsDeck = (array) => {
             blueDeck.push(elem)
         }
     })
-    
-    // console.log(greenDeck)
-    // console.log(brownDeck)
-    // console.log(blueDeck)
+    console.log(`------------------Колоды по цветам ДО перемешки----------------`)
+    console.log(greenDeck)
+    console.log(brownDeck)
+    console.log(blueDeck)
     //Передаем в функцию 3 колоды и ещё раз сортируем их (перемешиваем)
     console.log(`разбил колоды по 3м цветам`)
     createMiniDecks(shuffleDeck(greenDeck), shuffleDeck(brownDeck), shuffleDeck(blueDeck))
@@ -242,6 +245,8 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
             currentAncientStage = ancientsData[ancientIndex].thirdStage;
             console.log(`ancientsData[ancientIndex].thirdStage =`)
             console.log(ancientsData[ancientIndex].thirdStage)
+            console.log(`====== Сейчас 3й тик и колода greenDeck =`)
+            console.log(greenDeck)
         }
         
 
@@ -249,7 +254,7 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
             if (counterGreen < currentAncientStage.greenCards) {
                 currentDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
                 greenDeck.splice(elem, 1);
-                
+                console.log(counterGreen < currentAncientStage.greenCards)
                 console.log(`текущая зелёная колода после убирания:`)
                 console.log(greenDeck);
                 counterGreen++;
