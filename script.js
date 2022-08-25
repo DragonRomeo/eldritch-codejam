@@ -94,6 +94,7 @@ const shuffleDeck = (array) => {
         const randomIndex = Math.floor(Math.random() * (i + 1));
         [newArray[i], newArray[randomIndex]] = [newArray[randomIndex], newArray[i]];
     }
+    console.log(`перемешал колоду ниже`)
     console.log(newArray)
     return newArray;
 }
@@ -174,7 +175,7 @@ const veryEasyDiff = () => {
         }
     })
     // console.log(`blueCounter =${blueCounter}`);
-
+    console.log(`Колода очень лёгкая сложность:`)
     console.log(sortedArray)
     createColorsDeck(sortedArray)
 
@@ -209,6 +210,7 @@ const createColorsDeck = (array) => {
     // console.log(brownDeck)
     // console.log(blueDeck)
     //Передаем в функцию 3 колоды и ещё раз сортируем их (перемешиваем)
+    console.log(`разбил колоды по 3м цветам`)
     createMiniDecks(shuffleDeck(greenDeck), shuffleDeck(brownDeck), shuffleDeck(blueDeck))
 }
 
@@ -244,6 +246,7 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
                 currentDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
                 greenDeck.splice(i, 1);
                 counterGreen++;
+                console.log(`текущая зелёная колода после убирания:`)
                 console.log(greenDeck);
             }
         })
@@ -267,10 +270,11 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
             }
         })
     }
+    console.log(`1я 2я и 3я колода по этапам:`)
     console.log(firstStageDeck)
     console.log(secondStageDeck)
     console.log(thirdStageDeck)
-    console.log(`если сработало, то массив с зелёными картами ниже будет пустой`)
+    console.log(`финальный массик из зеленых карт:`)
     console.log(greenDeck);
 }
 
