@@ -123,7 +123,7 @@ const difficultySelection = (event) => {
             console.log('очень тяжелая')
         }
     }
-    console.log(difficulty)
+    // console.log(difficulty)
     return difficulty;
 }
 difficultyContainer.onclick = function (event) {
@@ -204,10 +204,10 @@ const createColorsDeck = (array) => {
             blueDeck.push(elem)
         }
     })
-
-    console.log(greenDeck)
-    console.log(brownDeck)
-    console.log(blueDeck)
+    
+    // console.log(greenDeck)
+    // console.log(brownDeck)
+    // console.log(blueDeck)
     //Передаем в функцию 3 колоды и ещё раз сортируем их (перемешиваем)
     createMiniDecks(shuffleDeck(greenDeck), shuffleDeck(brownDeck), shuffleDeck(blueDeck))
 }
