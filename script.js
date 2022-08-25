@@ -90,15 +90,15 @@ const createCommonDeck = () => {
 const shuffleDeck = (array) => {
     const newArray = array.slice(0);
     // const newArray = array;
-    console.log(`ФункцияПеремешки NewArray до перебора равно =`)
-    console.log(newArray)
+    // console.log(`ФункцияПеремешки NewArray до перебора равно =`)
+    // console.log(newArray)
 
     for (let i = (newArray.length - 1); i > 0; i -= 1) {
         const randomIndex = Math.floor(Math.random() * (i + 1));
         [newArray[i], newArray[randomIndex]] = [newArray[randomIndex], newArray[i]];
     }
-    console.log(`перемешал колоду ниже`)
-    console.log(newArray)
+    // console.log(`перемешал колоду ниже`)
+    // console.log(newArray)
     return newArray;
 }
 const commonDeck = createCommonDeck()
@@ -208,13 +208,14 @@ const createColorsDeck = (array) => {
             blueDeck.push(elem)
         }
     })
-    console.log(`------------------Колоды по цветам ДО перемешки----------------`)
-    console.log(greenDeck)
-    console.log(brownDeck)
-    console.log(blueDeck)
+    // console.log(`------------------Колоды по цветам ДО перемешки----------------`)
+    // console.log(greenDeck)
+    // console.log(brownDeck)
+    // console.log(blueDeck)
     //Передаем в функцию 3 колоды и ещё раз сортируем их (перемешиваем)
-    console.log(`разбил колоды по 3м цветам`)
-    createMiniDecks(shuffleDeck(greenDeck), shuffleDeck(brownDeck), shuffleDeck(blueDeck))
+    console.log(`разбил колоды по 3м цветам`);
+    setTimeout(createMiniDecks(shuffleDeck(greenDeck), shuffleDeck(brownDeck), shuffleDeck(blueDeck)), 2000)
+    
 }
 
 
