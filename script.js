@@ -180,11 +180,12 @@ const veryEasyDiff = () => {
 
 }
 
-const greenDeck = []
-const brownDeck = []
-const blueDeck = []
+
 
 const createColorsDeck = (array) => {
+    const greenDeck = []
+    const brownDeck = []
+    const blueDeck = []
 
     array.forEach((elem, i) => {
         if (array[i].color === 'green') {
@@ -207,18 +208,35 @@ const createColorsDeck = (array) => {
     console.log(greenDeck)
     console.log(brownDeck)
     console.log(blueDeck)
+    //Передаем в функцию 3 колоды и ещё раз сортируем их (перемешиваем)
+    createMiniDecks(sortingDeck(greenDeck), sortingDeck(brownDeck), sortingDeck(blueDeck))
 }
 
 
-const createMiniDecks = (sortedArray) => {
+const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     const firstStageDeck = [];
-    let counterGreen = 0;
-    let counterBlueCards = 0;
-    let counterBrownCards = 0;
+    let counterGreen = 0; //счетчик не должен превышать значение ancientsData[index].${first/second/third}Stage.greenCards
+    let counterBlue = 0;
+    let counterBrown = 0;
 
-    sortedArray.forEach((elem, i) => {
-        if (sortedArray[i].color === 'green') {
-            firstStageDeck.push(elem)
+    greenDeck.forEach((elem, i) => {
+        if (counterGreen < ancientsData[ancientIndex].firstStage.greenCards) {
+            firstStageDeck.push(elem);
+            counterGreen++;
+        }
+    })
+
+    brownDeck.forEach((elem, i) => {
+        if (counterBrown < ancientsData[ancientIndex].firstStage.brownCards) {
+            firstStageDeck.push(elem);
+            counterBrown++;
+        }
+    })
+
+    blueDeck.forEach((elem, i) => {
+        if (counterBlue < ancientsData[ancientIndex].firstStage.blueCards) {
+            firstStageDeck.push(elem);
+            counterBlue++;
         }
     })
     console.log(firstStageDeck)
