@@ -215,7 +215,7 @@ const createColorsDeck = (array) => {
     //Передаем в функцию 3 колоды и ещё раз сортируем их (перемешиваем)
     console.log(`разбил колоды по 3м цветам`);
     setTimeout(createMiniDecks(shuffleDeck(greenDeck), shuffleDeck(brownDeck), shuffleDeck(blueDeck)), 2000)
-    
+
 }
 
 
@@ -225,62 +225,84 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     const thirdStageDeck = [];
     let currentDeck = firstStageDeck
     let currentAncientStage = ancientsData[ancientIndex].firstStage;
-    let counterGreen = 0; //счетчик не должен превышать значение ancientsData[index].${first/second/third}Stage.greenCards
+    let counterGreen = 0;
+    let counterGreen2 = 0;
+    let counterGreen3 = 0; //счетчик не должен превышать значение ancientsData[index].${first/second/third}Stage.greenCards
     let counterBlue = 0;
     let counterBrown = 0;
     console.log(`===================================`)
 
-    for (let i = 0; i < 5; i++) {
-        counterGreen = 0;
-        counterBlue = 0;
-        counterBrown = 0;
-
-        if (i === 0) {
-            currentDeck = firstStageDeck;
-            currentAncientStage = ancientsData[ancientIndex].firstStage;
-        } else if (i === 1) {
-            currentDeck = secondStageDeck;
-            currentAncientStage = ancientsData[ancientIndex].secondStage;
-        } else if (i === 2) {
-            currentDeck = thirdStageDeck;
-            currentAncientStage = ancientsData[ancientIndex].thirdStage;
-            console.log(`ancientsData[ancientIndex].thirdStage =`)
-            console.log(ancientsData[ancientIndex].thirdStage)
-            console.log(`====== Сейчас 3й тик и колода greenDeck =`)
-            console.log(greenDeck)
+    greenDeck.forEach((elem, i) => {
+        console.log(counterGreen < ancientsData[ancientIndex].firstStage.greenCards)
+        if (counterGreen < ancientsData[ancientIndex].firstStage.greenCards) {
+            firstStageDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
+            counterGreen++;
+            console.log(firstStageDeck);
         }
-        console.log(`каунтер в НАЧАЛЕ цикла: counterGreen =${counterGreen}, counterBlue =${counterBlue}, counterBrown =${counterBrown},`)
-
-        greenDeck.forEach((elem, i) => {
-            if (counterGreen < currentAncientStage.greenCards) {
-                currentDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
-                greenDeck.splice(elem, 1);
-                
-                counterGreen++;
-            }
-        })
-            
-        brownDeck.forEach((elem, i) => {
-            if (counterBrown < currentAncientStage.brownCards) {
-                currentDeck.push(elem);
-                brownDeck.splice(elem, 1);
-                
-                
-                counterBrown++;
-            }
-        })
-
-        blueDeck.forEach((elem, i) => {
-            if (counterBlue < currentAncientStage.blueCards) {
-                currentDeck.push(elem);
-                blueDeck.splice(elem, 1);
-                
-                counterBlue++;
-            }
-        })
-        console.log(`каунтер в КОНЦЕ цикла: counterGreen =${counterGreen}, counterBlue =${counterBlue}, counterBrown =${counterBrown},`)
-        console.log(`==================================`)
+        console.log(counterGreen2 < ancientsData[ancientIndex].secondStage.greenCards)
+        if (counterGreen2 < ancientsData[ancientIndex].secondStage.greenCards) {
+            secondStageDeck.push(elem); 
+            counterGreen2++;
+            console.log(secondStageDeck)
+        }
+        console.log(counterGreen3 < ancientsData[ancientIndex].thirdStage.greenCards)
+        if (counterGreen3 < ancientsData[ancientIndex].thirdStage.greenCards) {
+            thirdStageDeck.push(elem); 
+            counterGreen3++;
+            console.log(thirdStageDeck)
+        }
     }
+    )
+
+    console.log(`!====================! Деки с зелёными картами`)
+    console.log(firstStageDeck)
+    console.log(secondStageDeck)
+    console.log(thirdStageDeck)
+
+    // for (let i = 0; i < 5; i++) {
+    //     counterGreen = 0;
+    //     counterBlue = 0;
+    //     counterBrown = 0;
+
+    //     if (i === 0) {
+    //         currentDeck = firstStageDeck;
+    //         currentAncientStage = ancientsData[ancientIndex].firstStage;
+    //     } else if (i === 1) {
+    //         currentDeck = secondStageDeck;
+    //         currentAncientStage = ancientsData[ancientIndex].secondStage;
+    //     } else if (i === 2) {
+    //         currentDeck = thirdStageDeck;
+    //         currentAncientStage = ancientsData[ancientIndex].thirdStage;
+    //         console.log(`ancientsData[ancientIndex].thirdStage =`)
+    //         console.log(ancientsData[ancientIndex].thirdStage)
+    //         console.log(`====== Сейчас 3й тик и колода greenDeck =`)
+    //         console.log(greenDeck)
+    //     }
+    //     console.log(`каунтер в НАЧАЛЕ цикла: counterGreen =${counterGreen}, counterBlue =${counterBlue}, counterBrown =${counterBrown},`)
+
+
+
+    //     brownDeck.forEach((elem, i) => {
+    //         if (counterBrown < currentAncientStage.brownCards) {
+    //             currentDeck.push(elem);
+    //             brownDeck.splice(elem, 1);
+
+
+    //             counterBrown++;
+    //         }
+    //     })
+
+    //     blueDeck.forEach((elem, i) => {
+    //         if (counterBlue < currentAncientStage.blueCards) {
+    //             currentDeck.push(elem);
+    //             blueDeck.splice(elem, 1);
+
+    //             counterBlue++;
+    //         }
+    //     })
+    //     console.log(`каунтер в КОНЦЕ цикла: counterGreen =${counterGreen}, counterBlue =${counterBlue}, counterBrown =${counterBrown},`)
+    //     console.log(`==================================`)
+    // }
     console.log(`1я 2я и 3я колода по этапам:`)
     console.log(firstStageDeck)
     console.log(secondStageDeck)
@@ -291,7 +313,7 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     console.log(brownDeck);
     console.log(`финальный массив из остатка синих карт:`)
     console.log(blueDeck);
-    
+
 }
 
 //Проблема в том, что forEach не очень хорошо работает, если в процессе убирать элементы из массива.
