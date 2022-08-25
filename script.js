@@ -230,7 +230,7 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     let counterBrown = 0;
     console.log(`===================================`)
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
         counterGreen = 0;
         counterBlue = 0;
         counterBrown = 0;
@@ -249,27 +249,23 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
             console.log(`====== Сейчас 3й тик и колода greenDeck =`)
             console.log(greenDeck)
         }
-        
+        console.log(`каунтер в НАЧАЛЕ цикла: counterGreen =${counterGreen}, counterBlue =${counterBlue}, counterBrown =${counterBrown},`)
 
         greenDeck.forEach((elem, i) => {
             if (counterGreen < currentAncientStage.greenCards) {
                 currentDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
                 greenDeck.splice(elem, 1);
-                console.log(counterGreen < currentAncientStage.greenCards)
-                console.log(`текущая зелёная колода после убирания:`)
-                console.log(greenDeck);
+                
                 counterGreen++;
             }
         })
             
-
         brownDeck.forEach((elem, i) => {
             if (counterBrown < currentAncientStage.brownCards) {
                 currentDeck.push(elem);
                 brownDeck.splice(elem, 1);
                 
-                console.log(`текущая коричневая колода после убирания:`)
-                console.log(brownDeck);
+                
                 counterBrown++;
             }
         })
@@ -278,11 +274,11 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
             if (counterBlue < currentAncientStage.blueCards) {
                 currentDeck.push(elem);
                 blueDeck.splice(elem, 1);
-                console.log(`текущая синяя колода после убирания:`)
-                console.log(blueDeck);
+                
                 counterBlue++;
             }
         })
+        console.log(`каунтер в КОНЦЕ цикла: counterGreen =${counterGreen}, counterBlue =${counterBlue}, counterBrown =${counterBrown},`)
         console.log(`==================================`)
     }
     console.log(`1я 2я и 3я колода по этапам:`)
@@ -298,5 +294,4 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     
 }
 
-//В GreenCard массиве остаётся 1 карта, которая не попадает в последний стейдж. То есть, он её там не видит, но и забрать не может?
-
+//Проблема в том, что forEach не очень хорошо работает, если в процессе убирать элементы из массива.
