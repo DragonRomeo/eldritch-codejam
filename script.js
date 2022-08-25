@@ -214,27 +214,29 @@ const createColorsDeck = (array) => {
 
 
 const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
+    const currentDeck = firstStageDeck
     const firstStageDeck = [];
+    let currentAncientStage = ancientsData[ancientIndex].firstStage;
     let counterGreen = 0; //счетчик не должен превышать значение ancientsData[index].${first/second/third}Stage.greenCards
     let counterBlue = 0;
     let counterBrown = 0;
 
     greenDeck.forEach((elem, i) => {
-        if (counterGreen < ancientsData[ancientIndex].firstStage.greenCards) {
+        if (counterGreen < currentAncientStage.greenCards) {
             firstStageDeck.push(elem);
             counterGreen++;
         }
     })
 
     brownDeck.forEach((elem, i) => {
-        if (counterBrown < ancientsData[ancientIndex].firstStage.brownCards) {
+        if (counterBrown < currentAncientStage.brownCards) {
             firstStageDeck.push(elem);
             counterBrown++;
         }
     })
 
     blueDeck.forEach((elem, i) => {
-        if (counterBlue < ancientsData[ancientIndex].firstStage.blueCards) {
+        if (counterBlue < currentAncientStage.blueCards) {
             firstStageDeck.push(elem);
             counterBlue++;
         }
