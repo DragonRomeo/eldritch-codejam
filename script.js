@@ -214,33 +214,58 @@ const createColorsDeck = (array) => {
 
 
 const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
-    const currentDeck = firstStageDeck
     const firstStageDeck = [];
+    const secondStageDeck = [];
+    const thirdStageDeck = [];
+    let currentDeck = firstStageDeck
     let currentAncientStage = ancientsData[ancientIndex].firstStage;
     let counterGreen = 0; //счетчик не должен превышать значение ancientsData[index].${first/second/third}Stage.greenCards
     let counterBlue = 0;
     let counterBrown = 0;
 
-    greenDeck.forEach((elem, i) => {
-        if (counterGreen < currentAncientStage.greenCards) {
-            firstStageDeck.push(elem);
-            counterGreen++;
-        }
-    })
+    for (let i = 0; i < 3; i++) {
+        counterGreen = 0;
+        counterBlue = 0;
+        counterBrown = 0;
 
-    brownDeck.forEach((elem, i) => {
-        if (counterBrown < currentAncientStage.brownCards) {
-            firstStageDeck.push(elem);
-            counterBrown++;
+        if (i === 0) {
+            currentDeck = firstStageDeck;
+            currentAncientStage = ancientsData[ancientIndex].firstStage;
+        } else if (i === 1) {
+            currentDeck = secondStageDeck;
+            currentAncientStage = ancientsData[ancientIndex].secondStage;
+        } else if (i === 2) {
+            currentDeck = thirdStageDeck;
+            currentAncientStage = ancientsData[ancientIndex].thirdStage;
         }
-    })
 
-    blueDeck.forEach((elem, i) => {
-        if (counterBlue < currentAncientStage.blueCards) {
-            firstStageDeck.push(elem);
-            counterBlue++;
-        }
-    })
+        console.log(`current deck = ${currentDeck}`)
+        console.log(`currentAncientStage = ${currentAncientStage}`)
+
+
+        greenDeck.forEach((elem, i) => {
+            if (counterGreen < currentAncientStage.greenCards) {
+                currentDeck.push(elem);
+                counterGreen++;
+            }
+        })
+
+        brownDeck.forEach((elem, i) => {
+            if (counterBrown < currentAncientStage.brownCards) {
+                currentDeck.push(elem);
+                counterBrown++;
+            }
+        })
+
+        blueDeck.forEach((elem, i) => {
+            if (counterBlue < currentAncientStage.blueCards) {
+                currentDeck.push(elem);
+                counterBlue++;
+            }
+        })
+    }
     console.log(firstStageDeck)
+    console.log(secondStageDeck)
+    console.log(thirdStageDeck)
 }
 
