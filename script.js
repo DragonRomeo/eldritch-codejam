@@ -82,12 +82,12 @@ const createCommonDeck = () => {
         commonDeck.push(elem)
     }))
 
-    console.log(commonDeck)
+    // console.log(commonDeck)
     return commonDeck;
 }
 
 
-const sortingDeck = (array) => {
+const shuffleDeck = (array) => {
     const newArray = array.slice(0);
 
     for (let i = (newArray.length - 1); i > 0; i -= 1) {
@@ -98,7 +98,7 @@ const sortingDeck = (array) => {
     return newArray;
 }
 const commonDeck = createCommonDeck()
-const sortedDeck = sortingDeck(commonDeck);
+const sortedDeck = shuffleDeck(commonDeck);
 
 
 const difficultySelection = (event) => {
@@ -209,7 +209,7 @@ const createColorsDeck = (array) => {
     console.log(brownDeck)
     console.log(blueDeck)
     //Передаем в функцию 3 колоды и ещё раз сортируем их (перемешиваем)
-    createMiniDecks(sortingDeck(greenDeck), sortingDeck(brownDeck), sortingDeck(blueDeck))
+    createMiniDecks(shuffleDeck(greenDeck), shuffleDeck(brownDeck), shuffleDeck(blueDeck))
 }
 
 
@@ -239,20 +239,22 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
             currentAncientStage = ancientsData[ancientIndex].thirdStage;
         }
 
-        console.log(`current deck = ${currentDeck}`)
-        console.log(`currentAncientStage = ${currentAncientStage}`)
-
-
         greenDeck.forEach((elem, i) => {
             if (counterGreen < currentAncientStage.greenCards) {
-                currentDeck.push(elem);
+                currentDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
+                greenDeck.splice(i, 1);
                 counterGreen++;
+                console.log(greenDeck);
             }
         })
+
+        // console.log(`${i}-й проход. Массив Зеленых карт сейчас выглядит так: (ниже)`)
+        
 
         brownDeck.forEach((elem, i) => {
             if (counterBrown < currentAncientStage.brownCards) {
                 currentDeck.push(elem);
+                brownDeck.splice(i, 1);
                 counterBrown++;
             }
         })
@@ -260,6 +262,7 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
         blueDeck.forEach((elem, i) => {
             if (counterBlue < currentAncientStage.blueCards) {
                 currentDeck.push(elem);
+                blueDeck.splice(i, 1);
                 counterBlue++;
             }
         })
@@ -267,5 +270,9 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     console.log(firstStageDeck)
     console.log(secondStageDeck)
     console.log(thirdStageDeck)
+    console.log(`если сработало, то массив с зелёными картами ниже будет пустой`)
+    console.log(greenDeck);
 }
+
+//В GreenCard массиве остаётся 1 карта, которая не попадает в последний стейдж. То есть, он её там не видит, но и забрать не может?
 
