@@ -240,7 +240,10 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
         } else if (i === 2) {
             currentDeck = thirdStageDeck;
             currentAncientStage = ancientsData[ancientIndex].thirdStage;
+            console.log(`ancientsData[ancientIndex].thirdStage =`)
+            console.log(ancientsData[ancientIndex].thirdStage)
         }
+        
 
         greenDeck.forEach((elem, i) => {
             if (counterGreen < currentAncientStage.greenCards) {
