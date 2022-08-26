@@ -228,8 +228,14 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     let counterGreen = 0;
     let counterGreen2 = 0;
     let counterGreen3 = 0; //счетчик не должен превышать значение ancientsData[index].${first/second/third}Stage.greenCards
-    let counterBlue = 0;
+    
     let counterBrown = 0;
+    let counterBrown2 = 0;
+    let counterBrown3 = 0;
+
+    let counterBlue = 0;
+    let counterBlue2 = 0;
+    let counterBlue3 = 0;
     console.log(`===================================`)
 
     greenDeck.forEach((elem, i) => {
@@ -237,19 +243,63 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
         if (counterGreen < ancientsData[ancientIndex].firstStage.greenCards) {
             firstStageDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
             counterGreen++;
-            console.log(firstStageDeck);
+            // console.log(firstStageDeck);
         }
         console.log(counterGreen2 < ancientsData[ancientIndex].secondStage.greenCards)
         if (counterGreen2 < ancientsData[ancientIndex].secondStage.greenCards) {
-            secondStageDeck.push(elem); 
+            secondStageDeck.push(elem);
             counterGreen2++;
-            console.log(secondStageDeck)
+            // console.log(secondStageDeck)
         }
         console.log(counterGreen3 < ancientsData[ancientIndex].thirdStage.greenCards)
         if (counterGreen3 < ancientsData[ancientIndex].thirdStage.greenCards) {
-            thirdStageDeck.push(elem); 
+            thirdStageDeck.push(elem);
             counterGreen3++;
-            console.log(thirdStageDeck)
+            // console.log(thirdStageDeck)
+        }
+    }
+    )
+
+    brownDeck.forEach((elem, i) => {
+        // console.log(counterGreen < ancientsData[ancientIndex].firstStage.brownCards)
+        if (counterBrown < ancientsData[ancientIndex].firstStage.brownCards) {
+            firstStageDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
+            counterBrown++;
+            // console.log(firstStageDeck);
+        }
+        // console.log(counterGreen2 < ancientsData[ancientIndex].secondStage.brownCards)
+        if (counterBrown2 < ancientsData[ancientIndex].secondStage.brownCards) {
+            secondStageDeck.push(elem);
+            counterBrown2++;
+            // console.log(secondStageDeck)
+        }
+        // console.log(counterGreen3 < ancientsData[ancientIndex].thirdStage.brownCards)
+        if (counterBrown3 < ancientsData[ancientIndex].thirdStage.brownCards) {
+            thirdStageDeck.push(elem);
+            counterBrown3++;
+            // console.log(thirdStageDeck)
+        }
+    }
+    )
+
+    blueDeck.forEach((elem, i) => {
+        console.log(counterBlue < ancientsData[ancientIndex].firstStage.blueCards)
+        if (counterBlue < ancientsData[ancientIndex].firstStage.blueCards) {
+            firstStageDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
+            counterBlue++;
+            // console.log(firstStageDeck);
+        }
+        console.log(counterBlue < ancientsData[ancientIndex].secondStage.blueCards)
+        if (counterBlue2 < ancientsData[ancientIndex].secondStage.blueCards) {
+            secondStageDeck.push(elem);
+            counterBlue2++;
+            // console.log(secondStageDeck)
+        }
+        console.log(counterBlue < ancientsData[ancientIndex].thirdStage.blueCards)
+        if (counterBlue3 < ancientsData[ancientIndex].thirdStage.blueCards) {
+            thirdStageDeck.push(elem);
+            counterBlue3++;
+            // console.log(thirdStageDeck)
         }
     }
     )
