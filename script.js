@@ -123,6 +123,7 @@ const difficultySelection = (event) => {
             hardDiff();
         } else if (target.textContent === 'Very hard') {
             console.log('очень тяжелая')
+            veryHardDiff();
         }
     }
 
@@ -215,6 +216,53 @@ const hardDiff = () => {//remove cards with easy lvl.
         }
     })
     console.log(sortedArray);
+    createColorsDeck(sortedArray)
+}
+
+const veryHardDiff = () => {
+    console.log(`Уровень сложности: Очень тяжелый. Правила: из набора берутся все карты со щупальцами, если карт не хватает то добираются обычные карты`);
+    let greenCounter = 0;
+    let brownCounter = 0;
+    let blueCounter = 0;
+
+    sortedDeck.forEach((elem, i) => { //дописать в условие && sortedDeck[i].color === 'green'
+        if (sortedDeck[i].difficulty === 'hard' && sortedDeck[i].color === 'green' && greenCounter < numberGreenCards) {
+            sortedArray.push(elem);
+            greenCounter++;
+        }
+    })
+
+    sortedDeck.forEach((elem, i) => {
+        if (sortedDeck[i].difficulty === 'normal' && sortedDeck[i].color === 'green' && greenCounter < numberGreenCards) {
+            sortedArray.push(elem);
+            greenCounter++;
+        }
+    })
+
+
+    sortedDeck.forEach((elem, i) => {
+        if (sortedDeck[i].difficulty === 'hard' && sortedDeck[i].color === 'brown' && brownCounter < numberBrownCards) {
+            sortedArray.push(elem);
+            brownCounter++;
+        }
+    })
+
+    sortedDeck.forEach((elem, i) => { //Если каунтер выше ещё не заполнен, то он добьёт оставшиеся карты нормальными
+        if (sortedDeck[i].difficulty === 'normal' && sortedDeck[i].color === 'brown' && brownCounter < numberBrownCards) {
+            sortedArray.push(elem);
+            brownCounter++;
+        }
+    })
+
+
+    sortedDeck.forEach((elem, i) => {
+        if (sortedDeck[i].difficulty === 'hard' && sortedDeck[i].color === 'blue' && blueCounter < numberBlueCards) { //0 < 2
+            sortedArray.push(elem);
+            blueCounter++;
+        }
+    })
+
+    console.log(sortedArray)
     createColorsDeck(sortedArray)
 }
 
