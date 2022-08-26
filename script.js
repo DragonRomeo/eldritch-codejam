@@ -164,6 +164,7 @@ const setDifficulty = () => {
     } else if (difficulty === 'very hard') {
         veryEasyDiff();
     }
+    showDeck()
 }
 
 const showDeck = () => {
