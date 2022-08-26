@@ -33,14 +33,14 @@ let ancientIndex;
 const getAncientIndex = (target) => {
     const dots = document.querySelectorAll('.dot');
     let index = ancientGodsArray.indexOf(target);
-   
+
     ancientIndex = index;
     ancientLogger(index);
     numberOfColorCards(index);
 }
 
 const ancientLogger = (index) => {
-    
+
     if (index === 0) {
         console.log('Выбран Азатот')
     } else if (index === 1) {
@@ -57,11 +57,11 @@ let numberBlueCards;
 
 const numberOfColorCards = (index) => {
     numberGreenCards = ancientsData[index].firstStage.greenCards + ancientsData[index].secondStage.greenCards + ancientsData[index].thirdStage.greenCards;
-    
+
     numberBrownCards = ancientsData[index].firstStage.brownCards + ancientsData[index].secondStage.brownCards + ancientsData[index].thirdStage.brownCards
-   
+
     numberBlueCards = ancientsData[index].firstStage.blueCards + ancientsData[index].secondStage.blueCards + ancientsData[index].thirdStage.blueCards
-   
+
 }
 
 const createCommonDeck = () => {
@@ -84,13 +84,13 @@ const createCommonDeck = () => {
 
 const shuffleDeck = (array) => {
     const newArray = array.slice(0);
-    
+
 
     for (let i = (newArray.length - 1); i > 0; i -= 1) {
         const randomIndex = Math.floor(Math.random() * (i + 1));
         [newArray[i], newArray[randomIndex]] = [newArray[randomIndex], newArray[i]];
     }
-   
+
     return newArray;
 }
 const commonDeck = createCommonDeck()
@@ -119,7 +119,7 @@ const difficultySelection = (event) => {
             console.log('очень тяжелая')
         }
     }
-   
+
     return difficulty;
 }
 difficultyContainer.onclick = function (event) {
@@ -132,7 +132,7 @@ const veryEasyDiff = () => {
     let greenCounter = 0;
     let brownCounter = 0;
     let blueCounter = 0;
-   
+
     sortedDeck.forEach((elem, i) => { //дописать в условие && sortedDeck[i].color === 'green'
         if (sortedDeck[i].difficulty === 'easy' && sortedDeck[i].color === 'green' && greenCounter < numberGreenCards) {
             sortedArray.push(elem);
@@ -146,7 +146,7 @@ const veryEasyDiff = () => {
             greenCounter++;
         }
     })
-  
+
 
     sortedDeck.forEach((elem, i) => {
         if (sortedDeck[i].difficulty === 'easy' && sortedDeck[i].color === 'brown' && brownCounter < numberBrownCards) {
@@ -161,7 +161,7 @@ const veryEasyDiff = () => {
             brownCounter++;
         }
     })
-  
+
 
     sortedDeck.forEach((elem, i) => {
         if (sortedDeck[i].difficulty === 'easy' && sortedDeck[i].color === 'blue' && blueCounter < numberBlueCards) { //0 < 2
@@ -169,7 +169,7 @@ const veryEasyDiff = () => {
             blueCounter++;
         }
     })
-    
+
     console.log(`Колода очень лёгкая сложность:`)
     console.log(sortedArray)
     createColorsDeck(sortedArray)
@@ -200,7 +200,7 @@ const createColorsDeck = (array) => {
             blueDeck.push(elem)
         }
     })
-    
+
     //Передаем в функцию 3 колоды и ещё раз сортируем их (перемешиваем)
     console.log(`разбил колоды по 3м цветам`);
     setTimeout(createMiniDecks(shuffleDeck(greenDeck), shuffleDeck(brownDeck), shuffleDeck(blueDeck)), 2000)
@@ -212,11 +212,11 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     const firstStageDeck = [];
     const secondStageDeck = [];
     const thirdStageDeck = [];
-    
+
     let counterGreen = 0;
     let counterGreen2 = 0;
     let counterGreen3 = 0; //счетчик не должен превышать значение ancientsData[index].${first/second/third}Stage.greenCards
-    
+
     let counterBrown = 0;
     let counterBrown2 = 0;
     let counterBrown3 = 0;
@@ -231,43 +231,43 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
         if (counterGreen < ancientsData[ancientIndex].firstStage.greenCards) {
             firstStageDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
             counterGreen++;
-            
+
         }
         console.log(counterGreen2 < ancientsData[ancientIndex].secondStage.greenCards)
         if (counterGreen2 < ancientsData[ancientIndex].secondStage.greenCards) {
             secondStageDeck.push(elem);
             counterGreen2++;
-           
+
         }
         console.log(counterGreen3 < ancientsData[ancientIndex].thirdStage.greenCards)
         if (counterGreen3 < ancientsData[ancientIndex].thirdStage.greenCards) {
             thirdStageDeck.push(elem);
             counterGreen3++;
-           
+
         }
     }
     )
 
     brownDeck.forEach((elem, i) => {
-       
         if (counterBrown < ancientsData[ancientIndex].firstStage.brownCards) {
             firstStageDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
             counterBrown++;
-            
-       
-        if (counterBrown2 < ancientsData[ancientIndex].secondStage.brownCards) {
-            secondStageDeck.push(elem);
-            counterBrown2++;
-           
+
         }
-        
-        if (counterBrown3 < ancientsData[ancientIndex].thirdStage.brownCards) {
-            thirdStageDeck.push(elem);
-            counterBrown3++;
-            
+            if (counterBrown2 < ancientsData[ancientIndex].secondStage.brownCards) {
+                secondStageDeck.push(elem);
+                counterBrown2++;
+
+            }
+
+            if (counterBrown3 < ancientsData[ancientIndex].thirdStage.brownCards) {
+                thirdStageDeck.push(elem);
+                counterBrown3++;
+
+            }
         }
-    }
     )
+
 
     blueDeck.forEach((elem, i) => {
         console.log(counterBlue < ancientsData[ancientIndex].firstStage.blueCards)
@@ -290,12 +290,12 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
         }
     }
     )
-       
+
     console.log(`1я 2я и 3я колода по этапам:`)
     console.log(firstStageDeck)
     console.log(secondStageDeck)
     console.log(thirdStageDeck)
-   
+
 }
 
 //Проблема в том, что forEach не очень хорошо работает, если в процессе убирать элементы из массива.
