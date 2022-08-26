@@ -104,7 +104,7 @@ p {
     display: flex;
     flex-direction: column;
     width: 14%;
-    margin-left: 10%;
+    margin-left: 15%;
 }
 
 .difficulty-wrapper.hide {
@@ -136,7 +136,7 @@ p {
     display: flex;
     flex-direction: column;
     width: 25%;
-    margin-left: 10%;
+    margin-left: 5%;
     align-items: center;
     gap: 5%;
 }
@@ -193,7 +193,7 @@ p {
     background-image: url(/assets/mythicCardBackground.png);
     background-size: cover;
     height: 371px;
-    width: 170px;
+    width: 204px;
     cursor: pointer;
 }
 
@@ -260,6 +260,6 @@ p {
     display: flex;
     background-size: cover;
     height: 371px;
-    width: 170px;
+    width: 204px;
     cursor: pointer;
 }
