@@ -186,7 +186,15 @@ const setDifficulty = () => {
     } else if (difficulty === 'very hard') {
         veryEasyDiff();
     }
-    showDeck()
+    showDeck();
+    difficultyWrapper.classList.add('hide');
+    shakeDeck.classList.add('hide');
+    
+    //Костыль убирающий актив у сложности
+    const difficultyElements = document.querySelectorAll('.difficulty');
+    for (let i = 0; i < difficultyElements.length; i++) {
+        difficultyElements[i].classList.remove('active')
+    }
 }
 
 const showDeck = () => {
