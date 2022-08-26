@@ -11,6 +11,7 @@ const difficultyContainer = document.querySelector('.difficulty-container');
 const lastCard = document.querySelector('.last-card');
 const deckElement = document.querySelector('.deck');
 const btnShake = document.querySelector('.btn-shake');
+const shakeDeck = document.querySelector('.shake-deck')
 let difficulty;
 
 
@@ -141,12 +142,15 @@ const difficultySelection = (event) => {
             difficulty = 'very hard';
         }
     }
+    showBtnShake();
 }
 difficultyContainer.onclick = function (event) {
     difficultySelection(event);
 }
 
-
+const showBtnShake = () => {
+    shakeDeck.classList.remove('hide')
+}
 
 const setDifficulty = () => {
     if (difficulty === 'very easy') {
@@ -160,6 +164,10 @@ const setDifficulty = () => {
     } else if (difficulty === 'very hard') {
         veryEasyDiff();
     }
+}
+
+const showDeck = () => {
+    deckElement.classList.remove('hide');
 }
 
 btnShake.addEventListener('click', setDifficulty);

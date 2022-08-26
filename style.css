@@ -141,10 +141,14 @@ p {
     border: 3px solid purple;
 }
 
-.shakeDeck {
+.shake-deck {
     display: flex;
     align-items: center;
     margin-top: 70%;
+}
+
+.shake-deck.hide {
+    visibility: hidden;
 }
 
 .btn-shake {
