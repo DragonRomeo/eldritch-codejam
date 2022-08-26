@@ -12,6 +12,7 @@ const lastCard = document.querySelector('.last-card');
 const deckElement = document.querySelector('.deck')
 
 
+
 // lastCard.style.backgroundImage = `url(${cardsDataBlue[0].cardFace})`;
 
 
@@ -20,13 +21,21 @@ const ancientToggleClass = (event) => {
 
     if (target.classList.contains('ancient-item')) {
         target.classList.toggle('active');
+        showDifficulty();
         if (target.classList.contains('active')) {
             getAncientIndex(target);
+            
         }
     }
+    
 }
 ancientGods.onclick = function (event) {
     ancientToggleClass(event);
+}
+
+const showDifficulty = () => {
+    const difficultyWrapper = document.querySelector('.difficulty-wrapper');
+    difficultyWrapper.classList.toggle('hide')
 }
 
 let ancientIndex;
@@ -58,9 +67,7 @@ let numberBlueCards;
 
 const numberOfColorCards = (index) => {
     numberGreenCards = ancientsData[index].firstStage.greenCards + ancientsData[index].secondStage.greenCards + ancientsData[index].thirdStage.greenCards;
-
     numberBrownCards = ancientsData[index].firstStage.brownCards + ancientsData[index].secondStage.brownCards + ancientsData[index].thirdStage.brownCards
-
     numberBlueCards = ancientsData[index].firstStage.blueCards + ancientsData[index].secondStage.blueCards + ancientsData[index].thirdStage.blueCards
 
 }

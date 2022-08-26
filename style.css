@@ -102,6 +102,10 @@ h3 {
     margin-left: 10%;
 }
 
+.difficulty-wrapper.hide {
+    visibility: hidden;
+}
+
 .difficulty-container {
     display: flex;
     flex-direction: column;
