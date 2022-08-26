@@ -2,7 +2,7 @@
 
 body {
     display: flex;
-    background-image: url(../assets/home.png);
+    background-image: url(../Eldrith/assets/home.png);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -84,19 +84,19 @@ p {
 }
 
 .ancient-item:nth-child(1) {
-    background-image: url(/assets/Ancients/Azathoth.png);
+    background-image: url(/Eldrith/assets/Ancients/Azathoth.png);
 }
 
 .ancient-item:nth-child(2) {
-    background-image: url(/assets/Ancients/Cthulthu.png);
+    background-image: url(/Eldrith/assets/Ancients/Cthulthu.png);
 }
 
 .ancient-item:nth-child(3) {
-    background-image: url(/assets/Ancients/IogSothoth.png);
+    background-image: url(/Eldrith/assets/Ancients/IogSothoth.png);
 }
 
 .ancient-item:nth-child(4) {
-    background-image: url(/assets/Ancients/ShubNiggurath.png);
+    background-image: url(/Eldrith/assets/Ancients/ShubNiggurath.png);
 }
 
 .wrapper-diff-shake {
@@ -212,7 +212,7 @@ p {
 
 .deck {
     display: flex;
-    background-image: url(/assets/mythicCardBackground.png);
+    background-image: url(/Eldrith/assets/mythicCardBackground.png);
     background-size: cover;
     height: 371px;
     width: 204px;
