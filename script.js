@@ -114,6 +114,7 @@ const difficultySelection = (event) => {
             veryEasyDiff()
         } else if (target.textContent === 'Easy') {
             console.log('лёгкая')
+            easyDiff();
         } else if (target.textContent === 'Medium') {
             console.log('средняя')
         } else if (target.textContent === 'Hard') {
@@ -177,6 +178,20 @@ const veryEasyDiff = () => {
     console.log(sortedArray)
     createColorsDeck(sortedArray)
 
+}
+
+const easyDiff = () => {//Из набора убираются карты с щупальцами (difficulty: 'hard')
+  
+    sortedDeck.forEach((elem, i) => {
+        if (sortedDeck[i].difficulty !== 'hard') {
+            sortedArray.push(elem)
+            // console.log(`запушил`)
+            // console.log(elem)
+        }
+    })
+    console.log(`Сложность выбрана. Правила: Из набора убираются карты с щупальцами`)
+    console.log(sortedArray);
+    createColorsDeck(sortedArray)
 }
 
 
@@ -309,9 +324,9 @@ const countClicks = () => {
 const pullCardFromDeck = () => {
     countClicks();
 
-    if(clicks < deckOfMyths.length) {
+    if (clicks < deckOfMyths.length) {
         lastCard.style.backgroundImage = `url(${deckOfMyths[clicks].cardFace})`;
-    }       
+    }
 }
 
 deckElement.addEventListener('click', pullCardFromDeck);
