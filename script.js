@@ -294,5 +294,5 @@ console.log(`колода мифов`);
 // console.log(deckOfMyths)
 deckOfMyths = deckOfMyths.concat(thirdDeck);
 console.log(deckOfMyths)
-
+return deckOfMyths;
 }
