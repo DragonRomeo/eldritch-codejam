@@ -24,6 +24,7 @@ const ancientToggleClass = (event) => {
         showDifficulty();
         if (target.classList.contains('active')) {
             getAncientIndex(target);
+            createAncientLetsTracker();
         }
     }
 
@@ -400,3 +401,28 @@ const pullCardFromDeck = () => {
 }
 
 deckElement.addEventListener('click', pullCardFromDeck);
+
+
+const createAncientLetsTracker = () => {
+    let greenCardsTrack = ancientsData[ancientIndex].firstStage.greenCards;
+    let brownCardsTrack = ancientsData[ancientIndex].firstStage.brownCards;
+    let blueCardsTrack = ancientsData[ancientIndex].firstStage.blueCards;
+    
+    let greenCardsTrack2 = ancientsData[ancientIndex].secondStage.greenCards;
+    let brownCardsTrack2 = ancientsData[ancientIndex].secondStage.brownCards;
+    let blueCardsTrack2 = ancientsData[ancientIndex].secondStage.blueCards;
+    
+    let greenCardsTrack3 = ancientsData[ancientIndex].thirdStage.greenCards;
+    let brownCardsTrack3 = ancientsData[ancientIndex].thirdStage.brownCards;
+    let blueCardsTrack3 = ancientsData[ancientIndex].thirdStage.blueCards;
+
+    let cardTrackerArr = [greenCardsTrack, brownCardsTrack, blueCardsTrack, greenCardsTrack2, brownCardsTrack2,blueCardsTrack2, greenCardsTrack3, brownCardsTrack3, blueCardsTrack3 ];
+    fillTracker(cardTrackerArr);
+}
+
+const fillTracker = (array) => {
+    const dots = document.querySelectorAll('.dot');
+    for(let i = 0; i < dots.length; i++) {
+        dots[i].textContent = array[i]
+    }
+}
