@@ -391,38 +391,73 @@ const countClicks = () => {
 }
 
 const pullCardFromDeck = () => {
-    countClicks();
+    
 
     if (clicks < deckOfMyths.length) {
         lastCard.style.backgroundImage = `url(${deckOfMyths[clicks].cardFace})`;
+        console.log(deckOfMyths[clicks])
+        dropCardForTracker()
     } else {
         deckElement.classList.add('hide');
     }
+    countClicks();
 }
 
 deckElement.addEventListener('click', pullCardFromDeck);
 
 
-const createAncientLetsTracker = () => {
-    let greenCardsTrack = ancientsData[ancientIndex].firstStage.greenCards;
-    let brownCardsTrack = ancientsData[ancientIndex].firstStage.brownCards;
-    let blueCardsTrack = ancientsData[ancientIndex].firstStage.blueCards;
-    
-    let greenCardsTrack2 = ancientsData[ancientIndex].secondStage.greenCards;
-    let brownCardsTrack2 = ancientsData[ancientIndex].secondStage.brownCards;
-    let blueCardsTrack2 = ancientsData[ancientIndex].secondStage.blueCards;
-    
-    let greenCardsTrack3 = ancientsData[ancientIndex].thirdStage.greenCards;
-    let brownCardsTrack3 = ancientsData[ancientIndex].thirdStage.brownCards;
-    let blueCardsTrack3 = ancientsData[ancientIndex].thirdStage.blueCards;
 
-    let cardTrackerArr = [greenCardsTrack, brownCardsTrack, blueCardsTrack, greenCardsTrack2, brownCardsTrack2,blueCardsTrack2, greenCardsTrack3, brownCardsTrack3, blueCardsTrack3 ];
-    fillTracker(cardTrackerArr);
+let greenCardsTrack;
+let brownCardsTrack;
+let blueCardsTrack;
+
+let greenCardsTrack2;
+let brownCardsTrack2;
+let blueCardsTrack2;
+
+let greenCardsTrack3;
+let brownCardsTrack3;
+let blueCardsTrack3;
+// let cardTrackerArr = []
+
+
+const createAncientLetsTracker = () => {
+    greenCardsTrack = ancientsData[ancientIndex].firstStage.greenCards;
+    brownCardsTrack = ancientsData[ancientIndex].firstStage.brownCards;
+    blueCardsTrack = ancientsData[ancientIndex].firstStage.blueCards;
+
+    greenCardsTrack2 = ancientsData[ancientIndex].secondStage.greenCards;
+    brownCardsTrack2 = ancientsData[ancientIndex].secondStage.brownCards;
+    blueCardsTrack2 = ancientsData[ancientIndex].secondStage.blueCards;
+
+    greenCardsTrack3 = ancientsData[ancientIndex].thirdStage.greenCards;
+    brownCardsTrack3 = ancientsData[ancientIndex].thirdStage.brownCards;
+    blueCardsTrack3 = ancientsData[ancientIndex].thirdStage.blueCards;
+
+    // cardTrackerArr = [greenCardsTrack, brownCardsTrack, blueCardsTrack, greenCardsTrack2, brownCardsTrack2, blueCardsTrack2, greenCardsTrack3, brownCardsTrack3, blueCardsTrack3];
+    fillTracker();
+
 }
 
-const fillTracker = (array) => {
+const fillTracker = () => {
+    const array = [greenCardsTrack, brownCardsTrack, blueCardsTrack, greenCardsTrack2, brownCardsTrack2, blueCardsTrack2, greenCardsTrack3, brownCardsTrack3, blueCardsTrack3];
     const dots = document.querySelectorAll('.dot');
-    for(let i = 0; i < dots.length; i++) {
+    for (let i = 0; i < dots.length; i++) {
         dots[i].textContent = array[i]
+    }
+}
+
+const dropCardForTracker = () => {
+    if (deckOfMyths[clicks].color === 'green') {
+        greenCardsTrack--;
+        fillTracker()
+    }
+    if (deckOfMyths[clicks].color === 'brown') {
+        brownCardsTrack--;
+        fillTracker()
+    }
+    if (deckOfMyths[clicks].color === 'blue') {
+        blueCardsTrack--;
+        fillTracker()
     }
 }
