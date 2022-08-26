@@ -9,9 +9,10 @@ const ancientItems = document.querySelectorAll('.ancient-item')
 const ancientGodsArray = Array.from(ancientItems);
 const difficultyContainer = document.querySelector('.difficulty-container');
 const lastCard = document.querySelector('.last-card');
+const deckElement = document.querySelector('.deck')
 
 
-lastCard.style.backgroundImage = `url(${cardsDataBlue[0].cardFace})`;
+// lastCard.style.backgroundImage = `url(${cardsDataBlue[0].cardFace})`;
 
 
 const ancientToggleClass = (event) => {
@@ -287,12 +288,30 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     createDeckMyths(shuffleDeck(firstStageDeck), shuffleDeck(secondStageDeck), shuffleDeck(thirdStageDeck))
 
 }
+let deckOfMyths = []
 
 const createDeckMyths = (firstDeck, secondDeck, thirdDeck) => {
-    let deckOfMyths = firstDeck.concat(secondDeck);
+    deckOfMyths = firstDeck.concat(secondDeck);
     console.log(`колода мифов`);
     // console.log(deckOfMyths)
     deckOfMyths = deckOfMyths.concat(thirdDeck);
     console.log(deckOfMyths)
-    return deckOfMyths;
+    // return deckOfMyths;
 }
+
+let clicks = 0;
+
+const countClicks = () => {
+    deckElement.onclick = clicks++;
+    console.log(clicks)
+}
+
+const pullCardFromDeck = () => {
+    countClicks();
+
+    if(clicks < deckOfMyths.length) {
+        lastCard.style.backgroundImage = `url(${deckOfMyths[clicks].cardFace})`;
+    }       
+}
+
+deckElement.addEventListener('click', pullCardFromDeck);
