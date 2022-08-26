@@ -289,10 +289,10 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
 }
 
 const createDeckMyths = (firstDeck, secondDeck, thirdDeck) => {
-let deckOfMyths = firstDeck.concat(secondDeck);
-console.log(`колода мифов`);
-// console.log(deckOfMyths)
-deckOfMyths = deckOfMyths.concat(thirdDeck);
-console.log(deckOfMyths)
-return deckOfMyths;
+    let deckOfMyths = firstDeck.concat(secondDeck);
+    console.log(`колода мифов`);
+    // console.log(deckOfMyths)
+    deckOfMyths = deckOfMyths.concat(thirdDeck);
+    console.log(deckOfMyths)
+    return deckOfMyths;
 }
