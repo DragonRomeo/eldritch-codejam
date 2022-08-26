@@ -391,7 +391,7 @@ const countClicks = () => {
 }
 
 const pullCardFromDeck = () => {
-    
+
 
     if (clicks < deckOfMyths.length) {
         lastCard.style.backgroundImage = `url(${deckOfMyths[clicks].cardFace})`;
@@ -447,17 +447,78 @@ const fillTracker = () => {
     }
 }
 
+
+let stageTrackCounter = 0;
+
 const dropCardForTracker = () => {
-    if (deckOfMyths[clicks].color === 'green') {
-        greenCardsTrack--;
-        fillTracker()
-    }
-    if (deckOfMyths[clicks].color === 'brown') {
-        brownCardsTrack--;
-        fillTracker()
-    }
-    if (deckOfMyths[clicks].color === 'blue') {
-        blueCardsTrack--;
-        fillTracker()
+    let maxFirstStageCount = ancientsData[ancientIndex].firstStage.greenCards + ancientsData[ancientIndex].firstStage.brownCards + ancientsData[ancientIndex].firstStage.blueCards;
+    let maxSecondStageCount = ancientsData[ancientIndex].secondStage.greenCards + ancientsData[ancientIndex].secondStage.brownCards + ancientsData[ancientIndex].secondStage.blueCards;
+    let maxThirdStageCount = ancientsData[ancientIndex].thirdStage.greenCards + ancientsData[ancientIndex].thirdStage.brownCards + ancientsData[ancientIndex].thirdStage.blueCards;
+    maxSecondStageCount = maxFirstStageCount + maxSecondStageCount;
+    maxThirdStageCount = maxSecondStageCount + maxThirdStageCount;
+
+
+    
+    console.log(`max1StageCount = ${maxFirstStageCount}`)
+    console.log(`max2StageCount = ${maxSecondStageCount}`)
+    console.log(`max2StageCount = ${maxThirdStageCount}`)
+    // console.log(`===============`)
+    // console.log(`counter =${stageTrackCounter}, maxFirstStageCount = ${maxFirstStageCount}`);
+    // console.log(`Условие counter < maxFirstStageCount = ${stageTrackCounter < maxFirstStageCount} `)
+    if (stageTrackCounter < maxFirstStageCount) {
+        console.log(`выполняется 1е условие`)
+        if (deckOfMyths[clicks].color === 'green') {
+            greenCardsTrack--;
+            stageTrackCounter++;
+            fillTracker()
+        }
+        if (deckOfMyths[clicks].color === 'brown') {
+            brownCardsTrack--;
+            stageTrackCounter++;
+            fillTracker()
+        }
+        if (deckOfMyths[clicks].color === 'blue') {
+            blueCardsTrack--;
+            stageTrackCounter++;
+            fillTracker()
+        }
+    } else if (stageTrackCounter >= maxFirstStageCount && stageTrackCounter < maxSecondStageCount) {
+        console.log(`выполняется 2е условие`)
+        if (deckOfMyths[clicks].color === 'green') {
+            greenCardsTrack2--;
+            stageTrackCounter++;
+            fillTracker()
+        }
+        if (deckOfMyths[clicks].color === 'brown') {
+            brownCardsTrack2--;
+            stageTrackCounter++;
+            fillTracker()
+        }
+        if (deckOfMyths[clicks].color === 'blue') {
+            blueCardsTrack2--;
+            stageTrackCounter++;
+            fillTracker()
+        }
+    } else if (stageTrackCounter >= maxSecondStageCount && stageTrackCounter < maxThirdStageCount) {
+        console.log(`выполняется 3е условие`)
+        if (deckOfMyths[clicks].color === 'green') {
+            greenCardsTrack3--;
+            stageTrackCounter++;
+            fillTracker()
+        }
+        if (deckOfMyths[clicks].color === 'brown') {
+            brownCardsTrack3--;
+            stageTrackCounter++;
+            fillTracker()
+        }
+        if (deckOfMyths[clicks].color === 'blue') {
+            blueCardsTrack3--;
+            stageTrackCounter++;
+            fillTracker()
+        }
     }
 }
+
+
+
+
