@@ -16,6 +16,7 @@ const difficultyWrapper = document.querySelector('.difficulty-wrapper');
 
 let difficulty;
 let clicks = 0;
+let stageTrackCounter = 0;
 
 
 
@@ -502,7 +503,7 @@ const fillTracker = () => {
 }
 
 
-let stageTrackCounter = 0;
+
 
 const dropCardForTracker = () => {
     let maxFirstStageCount = ancientsData[ancientIndex].firstStage.greenCards + ancientsData[ancientIndex].firstStage.brownCards + ancientsData[ancientIndex].firstStage.blueCards;
