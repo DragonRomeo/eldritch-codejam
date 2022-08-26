@@ -457,16 +457,7 @@ const dropCardForTracker = () => {
     maxSecondStageCount = maxFirstStageCount + maxSecondStageCount;
     maxThirdStageCount = maxSecondStageCount + maxThirdStageCount;
 
-
-    
-    console.log(`max1StageCount = ${maxFirstStageCount}`)
-    console.log(`max2StageCount = ${maxSecondStageCount}`)
-    console.log(`max2StageCount = ${maxThirdStageCount}`)
-    // console.log(`===============`)
-    // console.log(`counter =${stageTrackCounter}, maxFirstStageCount = ${maxFirstStageCount}`);
-    // console.log(`Условие counter < maxFirstStageCount = ${stageTrackCounter < maxFirstStageCount} `)
     if (stageTrackCounter < maxFirstStageCount) {
-        console.log(`выполняется 1е условие`)
         if (deckOfMyths[clicks].color === 'green') {
             greenCardsTrack--;
             stageTrackCounter++;
@@ -483,7 +474,6 @@ const dropCardForTracker = () => {
             fillTracker()
         }
     } else if (stageTrackCounter >= maxFirstStageCount && stageTrackCounter < maxSecondStageCount) {
-        console.log(`выполняется 2е условие`)
         if (deckOfMyths[clicks].color === 'green') {
             greenCardsTrack2--;
             stageTrackCounter++;
@@ -500,7 +490,6 @@ const dropCardForTracker = () => {
             fillTracker()
         }
     } else if (stageTrackCounter >= maxSecondStageCount && stageTrackCounter < maxThirdStageCount) {
-        console.log(`выполняется 3е условие`)
         if (deckOfMyths[clicks].color === 'green') {
             greenCardsTrack3--;
             stageTrackCounter++;
