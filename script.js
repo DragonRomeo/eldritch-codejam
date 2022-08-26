@@ -91,9 +91,9 @@ const shuffleDeck = (array) => {
         const randomIndex = Math.floor(Math.random() * (i + 1));
         [newArray[i], newArray[randomIndex]] = [newArray[randomIndex], newArray[i]];
     }
-    console.log(`перемешка====`)
-    console.log(newArray)
-    console.log(`=============`)
+    // console.log(`перемешка====`)
+    // console.log(newArray)
+    // console.log(`=============`)
     return newArray;
 }
 const commonDeck = createCommonDeck()
