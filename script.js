@@ -108,21 +108,20 @@ const difficultySelection = (event) => {
         target.classList.toggle('active');
         // console.log(`сложность выбрана`)
         if (target.textContent === 'Very easy') {
-            // console.log('очень лёгкая')
-            console.log(`условия: из набора берутся все карты со снежинками, если карт не хватает то добираются обычные карты`)
+            console.log('Сложность: очень лёгкая')
             difficulty = 'very easy';
             veryEasyDiff()
         } else if (target.textContent === 'Easy') {
-            console.log('лёгкая')
+            console.log('Сложность: лёгкая')
             easyDiff();
         } else if (target.textContent === 'Medium') {
-            console.log('средняя')
+            console.log('Сложность: средняя')
             normalDiff();
         } else if (target.textContent === 'Hard') {
-            console.log('тяжелая')
+            console.log('Сложность: тяжелая')
             hardDiff();
         } else if (target.textContent === 'Very hard') {
-            console.log('очень тяжелая')
+            console.log('Сложность: очень тяжелая')
             veryHardDiff();
         }
     }
@@ -136,6 +135,7 @@ difficultyContainer.onclick = function (event) {
 const sortedArray = []
 
 const veryEasyDiff = () => {
+    console.log(`Правила: из набора берутся все карты со снежинками, если карт не хватает то добираются обычные карты`)
     let greenCounter = 0;
     let brownCounter = 0;
     let blueCounter = 0;
@@ -177,7 +177,7 @@ const veryEasyDiff = () => {
         }
     })
 
-    console.log(`Колода очень лёгкая сложность:`)
+    // console.log(`Колода очень лёгкая сложность:`)
     console.log(sortedArray)
     createColorsDeck(sortedArray)
 
@@ -192,13 +192,13 @@ const easyDiff = () => {//Из набора убираются карты с щ�
             // console.log(elem)
         }
     })
-    console.log(`Сложность: лёгкая. Правила: Из набора убираются карты с щупальцами`)
+    console.log(`Правила: Из набора убираются карты с щупальцами`)
     console.log(sortedArray);
     createColorsDeck(sortedArray)
 }
 
 const normalDiff = () => {
-    console.log(`Уровень сложности: Средний. Правила: колода остаётся, как есть`)
+    console.log(`Правила: колода остаётся, как есть`)
     sortedDeck.forEach(elem => {
         sortedArray.push(elem)
     })
@@ -207,7 +207,7 @@ const normalDiff = () => {
 }
 
 const hardDiff = () => {//remove cards with easy lvl.
-    console.log(`Уровень сложности: Тяжелый. Правила: из набора убираются карты со снежинками`);
+    console.log(`Правила: из набора убираются карты со снежинками`);
     sortedDeck.forEach((elem, i) => {
         if (sortedDeck[i].difficulty !== 'easy') {
             sortedArray.push(elem)
@@ -220,7 +220,7 @@ const hardDiff = () => {//remove cards with easy lvl.
 }
 
 const veryHardDiff = () => {
-    console.log(`Уровень сложности: Очень тяжелый. Правила: из набора берутся все карты со щупальцами, если карт не хватает то добираются обычные карты`);
+    console.log(`Правила: из набора берутся все карты со щупальцами, если карт не хватает то добираются обычные карты`);
     let greenCounter = 0;
     let brownCounter = 0;
     let blueCounter = 0;
@@ -379,7 +379,7 @@ let deckOfMyths = []
 
 const createDeckMyths = (firstDeck, secondDeck, thirdDeck) => {
     deckOfMyths = firstDeck.concat(secondDeck);
-    console.log(`колода мифов`);
+    console.log(`Колода мифов`);
     // console.log(deckOfMyths)
     deckOfMyths = deckOfMyths.concat(thirdDeck);
     console.log(deckOfMyths)
