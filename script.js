@@ -114,10 +114,14 @@ const sortedDeck = shuffleDeck(commonDeck);
 const difficultySelection = (event) => {
     let target = event.target;
     let difficulty;
+    const difficultyElements = document.querySelectorAll('.difficulty');
+    for(let i = 0; i < difficultyElements.length; i++) {
+        difficultyElements[i].classList.remove('active')
+    }
 
     if (target.classList.contains('difficulty')) {
-        target.classList.toggle('active');
-        // console.log(`сложность выбрана`)
+        target.classList.add('active');
+        
         if (target.textContent === 'Very easy') {
             console.log('Сложность: очень лёгкая')
             difficulty = 'very easy';
