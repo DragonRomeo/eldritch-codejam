@@ -117,6 +117,7 @@ const difficultySelection = (event) => {
             easyDiff();
         } else if (target.textContent === 'Medium') {
             console.log('средняя')
+            normalDiff();
         } else if (target.textContent === 'Hard') {
             console.log('тяжелая')
         } else if (target.textContent === 'Very hard') {
@@ -181,7 +182,7 @@ const veryEasyDiff = () => {
 }
 
 const easyDiff = () => {//Из набора убираются карты с щупальцами (difficulty: 'hard')
-  
+
     sortedDeck.forEach((elem, i) => {
         if (sortedDeck[i].difficulty !== 'hard') {
             sortedArray.push(elem)
@@ -190,6 +191,14 @@ const easyDiff = () => {//Из набора убираются карты с щ�
         }
     })
     console.log(`Сложность выбрана. Правила: Из набора убираются карты с щупальцами`)
+    console.log(sortedArray);
+    createColorsDeck(sortedArray)
+}
+
+const normalDiff = () => {
+    sortedDeck.forEach(elem => {
+        sortedArray.push(elem)
+    })
     console.log(sortedArray);
     createColorsDeck(sortedArray)
 }
