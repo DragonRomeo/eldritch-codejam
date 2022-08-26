@@ -44,6 +44,7 @@ ancientGods.onclick = function (event) {
 
 const getRestartSelectAncient = () => {
     clicks = 0;
+    stageTrackCounter = 0;
     if(!difficultyWrapper.classList.contains('hide')){
         difficultyWrapper.classList.add('hide')
     }
