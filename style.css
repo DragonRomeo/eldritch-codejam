@@ -37,6 +37,11 @@ h3 {
     color: white;
 }
 
+p {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
 .ancient-wrapper {
     display: flex;
     flex-direction: column;
