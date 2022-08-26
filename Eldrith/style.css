@@ -84,19 +84,19 @@ p {
 }
 
 .ancient-item:nth-child(1) {
-    background-image: url(/Eldrith/assets/Ancients/Azathoth.png);
+    background-image: url(../Eldrith/assets/Ancients/Azathoth.png);
 }
 
 .ancient-item:nth-child(2) {
-    background-image: url(/Eldrith/assets/Ancients/Cthulthu.png);
+    background-image: url(../Eldrith/assets/Ancients/Cthulthu.png);
 }
 
 .ancient-item:nth-child(3) {
-    background-image: url(/Eldrith/assets/Ancients/IogSothoth.png);
+    background-image: url(../Eldrith/assets/Ancients/IogSothoth.png);
 }
 
 .ancient-item:nth-child(4) {
-    background-image: url(/Eldrith/assets/Ancients/ShubNiggurath.png);
+    background-image: url(../Eldrith/assets/Ancients/ShubNiggurath.png);
 }
 
 .wrapper-diff-shake {
