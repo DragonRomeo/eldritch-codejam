@@ -13,9 +13,6 @@ const deckElement = document.querySelector('.deck')
 
 
 
-// lastCard.style.backgroundImage = `url(${cardsDataBlue[0].cardFace})`;
-
-
 const ancientToggleClass = (event) => {
     for (let i = 0; i < ancientGodsArray.length; i++) {
         ancientGodsArray[i].classList.remove('active')
@@ -27,8 +24,6 @@ const ancientToggleClass = (event) => {
         showDifficulty();
         if (target.classList.contains('active')) {
             getAncientIndex(target);
-
-
         }
     }
 
@@ -97,14 +92,10 @@ const createCommonDeck = () => {
 const shuffleDeck = (array) => {
     const newArray = array.slice(0);
 
-
     for (let i = (newArray.length - 1); i > 0; i -= 1) {
         const randomIndex = Math.floor(Math.random() * (i + 1));
         [newArray[i], newArray[randomIndex]] = [newArray[randomIndex], newArray[i]];
     }
-    // console.log(`перемешка====`)
-    // console.log(newArray)
-    // console.log(`=============`)
     return newArray;
 }
 const commonDeck = createCommonDeck()
@@ -136,14 +127,12 @@ const difficultySelection = (event) => {
         } else if (target.textContent === 'Hard') {
             console.log('Сложность: тяжелая')
             hardDiff();
-            
+
         } else if (target.textContent === 'Very hard') {
             console.log('Сложность: очень тяжелая')
             veryHardDiff();
         }
     }
-
-
 }
 difficultyContainer.onclick = function (event) {
     difficultySelection(event);
@@ -193,11 +182,8 @@ const veryEasyDiff = () => {
             blueCounter++;
         }
     })
-
-    // console.log(`Колода очень лёгкая сложность:`)
     console.log(sortedArray)
     createColorsDeck(sortedArray)
-
 }
 
 const easyDiff = () => {//Из набора убираются карты с щупальцами (difficulty: 'hard')
@@ -205,8 +191,6 @@ const easyDiff = () => {//Из набора убираются карты с щ�
     sortedDeck.forEach((elem, i) => {
         if (sortedDeck[i].difficulty !== 'hard') {
             sortedArray.push(elem)
-            // console.log(`запушил`)
-            // console.log(elem)
         }
     })
     console.log(`Правила: Из набора убираются карты с щупальцами`)
@@ -228,8 +212,6 @@ const hardDiff = () => {//remove cards with easy lvl.
     sortedDeck.forEach((elem, i) => {
         if (sortedDeck[i].difficulty !== 'easy') {
             sortedArray.push(elem)
-            // console.log(`запушил`)
-            // console.log(elem)
         }
     })
     console.log(sortedArray);
@@ -282,7 +264,6 @@ const veryHardDiff = () => {
     console.log(sortedArray)
     createColorsDeck(sortedArray)
 }
-
 
 
 const createColorsDeck = (array) => {
@@ -351,7 +332,7 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
 
     brownDeck.forEach((elem, i) => {
         if (counterBrown < ancientsData[ancientIndex].firstStage.brownCards) {
-            firstStageDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
+            firstStageDeck.push(elem);
             counterBrown++;
         }
         if (counterBrown2 < ancientsData[ancientIndex].secondStage.brownCards) {
@@ -368,7 +349,7 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
 
     blueDeck.forEach((elem, i) => {
         if (counterBlue < ancientsData[ancientIndex].firstStage.blueCards) {
-            firstStageDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
+            firstStageDeck.push(elem);
             counterBlue++;
         }
 
@@ -397,10 +378,8 @@ let deckOfMyths = []
 const createDeckMyths = (firstDeck, secondDeck, thirdDeck) => {
     deckOfMyths = firstDeck.concat(secondDeck);
     console.log(`Колода мифов`);
-    // console.log(deckOfMyths)
     deckOfMyths = deckOfMyths.concat(thirdDeck);
     console.log(deckOfMyths)
-    // return deckOfMyths;
 }
 
 let clicks = 0;
