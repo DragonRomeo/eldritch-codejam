@@ -100,11 +100,20 @@ p {
     background-image: url(/assets/Ancients/ShubNiggurath.png);
 }
 
-.difficulty-wrapper {
+.wrapper-diff-shake {
     display: flex;
     flex-direction: column;
     width: 14%;
     margin-left: 15%;
+    align-items: center;
+}
+
+.difficulty-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    /* margin-left: 15%; */
 }
 
 .difficulty-wrapper.hide {
@@ -130,6 +139,16 @@ p {
 .difficulty.active {
     transition: 0.5s;
     border: 3px solid purple;
+}
+
+.shakeDeck {
+    display: flex;
+    align-items: center;
+    margin-top: 70%;
+}
+
+.btn-shake {
+    
 }
 
 .deck-container {

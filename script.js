@@ -5,11 +5,13 @@ import ancientsData from "./data/ancients.js";
 
 
 const ancientGods = document.querySelector('.ancient-gods');
-const ancientItems = document.querySelectorAll('.ancient-item')
+const ancientItems = document.querySelectorAll('.ancient-item');
 const ancientGodsArray = Array.from(ancientItems);
 const difficultyContainer = document.querySelector('.difficulty-container');
 const lastCard = document.querySelector('.last-card');
-const deckElement = document.querySelector('.deck')
+const deckElement = document.querySelector('.deck');
+const btnShake = document.querySelector('.btn-shake');
+let difficulty;
 
 
 
@@ -115,29 +117,52 @@ const difficultySelection = (event) => {
 
         if (target.textContent === 'Very easy') {
             console.log('Сложность: очень лёгкая')
-            veryEasyDiff()
+            difficulty = 'very easy';
+
 
         } else if (target.textContent === 'Easy') {
             console.log('Сложность: лёгкая')
             easyDiff();
+            difficulty = 'easy';
 
         } else if (target.textContent === 'Medium') {
             console.log('Сложность: средняя')
             normalDiff();
+            difficulty = 'normal';
 
         } else if (target.textContent === 'Hard') {
             console.log('Сложность: тяжелая')
             hardDiff();
+            difficulty = 'hard';
 
         } else if (target.textContent === 'Very hard') {
             console.log('Сложность: очень тяжелая')
             veryHardDiff();
+            difficulty = 'very hard';
         }
     }
 }
 difficultyContainer.onclick = function (event) {
     difficultySelection(event);
 }
+
+
+
+const setDifficulty = () => {
+    if (difficulty === 'very easy') {
+        veryEasyDiff()
+    } else if (difficulty === 'easy') {
+        easyDiff()
+    } else if (difficulty === 'normal') {
+        normalDiff()
+    } else if (difficulty === 'hard') {
+        hardDiff()
+    } else if (difficulty === 'very hard') {
+        veryEasyDiff();
+    }
+}
+
+btnShake.addEventListener('click', setDifficulty);
 
 const sortedArray = []
 
