@@ -90,7 +90,9 @@ const shuffleDeck = (array) => {
         const randomIndex = Math.floor(Math.random() * (i + 1));
         [newArray[i], newArray[randomIndex]] = [newArray[randomIndex], newArray[i]];
     }
-
+    console.log(`перемешка====`)
+    console.log(newArray)
+    console.log(`=============`)
     return newArray;
 }
 const commonDeck = createCommonDeck()
@@ -281,7 +283,16 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     console.log(firstStageDeck)
     console.log(secondStageDeck)
     console.log(thirdStageDeck)
+    //После этого эти колоды нужно будет перемешать и отправить в следующую функцию
+    createDeckMyths(shuffleDeck(firstStageDeck), shuffleDeck(secondStageDeck), shuffleDeck(thirdStageDeck))
 
 }
 
-//Проблема в том, что forEach не очень хорошо работает, если в процессе убирать элементы из массива.
+const createDeckMyths = (firstDeck, secondDeck, thirdDeck) => {
+let deckOfMyths = firstDeck.concat(secondDeck);
+console.log(`колода мифов`);
+// console.log(deckOfMyths)
+deckOfMyths = deckOfMyths.concat(thirdDeck);
+console.log(deckOfMyths)
+
+}
