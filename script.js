@@ -12,11 +12,15 @@ const lastCard = document.querySelector('.last-card');
 const deckElement = document.querySelector('.deck');
 const btnShake = document.querySelector('.btn-shake');
 const shakeDeck = document.querySelector('.shake-deck')
+const difficultyWrapper = document.querySelector('.difficulty-wrapper');
+
 let difficulty;
+let clicks = 0;
 
 
 
 const ancientToggleClass = (event) => {
+    getRestartSelectAncient()
     for (let i = 0; i < ancientGodsArray.length; i++) {
         ancientGodsArray[i].classList.remove('active')
     }
@@ -28,6 +32,7 @@ const ancientToggleClass = (event) => {
         if (target.classList.contains('active')) {
             getAncientIndex(target);
             createAncientLetsTracker();
+
         }
     }
 
@@ -36,8 +41,23 @@ ancientGods.onclick = function (event) {
     ancientToggleClass(event);
 }
 
+const getRestartSelectAncient = () => {
+    clicks = 0;
+    if(!difficultyWrapper.classList.contains('hide')){
+        difficultyWrapper.classList.add('hide')
+    }
+    if(!deckElement.classList.contains('hide')) {
+        deckElement.classList.add('hide')
+    }
+    if(!shakeDeck.classList.contains('hide')){
+        shakeDeck.classList.add('hide')
+    }
+    lastCard.style.backgroundImage = ``;
+    
+}
+
 const showDifficulty = () => {
-    const difficultyWrapper = document.querySelector('.difficulty-wrapper');
+    
     difficultyWrapper.classList.remove('hide')
 }
 
@@ -417,7 +437,7 @@ const createDeckMyths = (firstDeck, secondDeck, thirdDeck) => {
     console.log(deckOfMyths)
 }
 
-let clicks = 0;
+
 
 const countClicks = () => {
     deckElement.onclick = clicks++;
