@@ -17,13 +17,17 @@ const deckElement = document.querySelector('.deck')
 
 
 const ancientToggleClass = (event) => {
+    for(let i = 0; i < ancientGodsArray.length; i++) {
+        ancientGodsArray[i].classList.remove('active')
+    }
     let target = event.target;
 
     if (target.classList.contains('ancient-item')) {
-        target.classList.toggle('active');
+        target.classList.add('active');
         showDifficulty();
         if (target.classList.contains('active')) {
             getAncientIndex(target);
+
             
         }
     }
@@ -35,7 +39,7 @@ ancientGods.onclick = function (event) {
 
 const showDifficulty = () => {
     const difficultyWrapper = document.querySelector('.difficulty-wrapper');
-    difficultyWrapper.classList.toggle('hide')
+    difficultyWrapper.classList.remove('hide')
 }
 
 let ancientIndex;
