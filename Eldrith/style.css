@@ -212,7 +212,7 @@ p {
 
 .deck {
     display: flex;
-    background-image: url(/Eldrith/assets/mythicCardBackground.png);
+    background-image: url(../Eldrith/assets/mythicCardBackground.png);
     background-size: cover;
     height: 371px;
     width: 204px;
