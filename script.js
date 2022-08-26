@@ -398,6 +398,8 @@ const pullCardFromDeck = () => {
 
     if (clicks < deckOfMyths.length) {
         lastCard.style.backgroundImage = `url(${deckOfMyths[clicks].cardFace})`;
+    } else {
+        deckElement.classList.add('hide');
     }
 }
 
