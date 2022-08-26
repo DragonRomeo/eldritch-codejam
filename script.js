@@ -17,7 +17,7 @@ const deckElement = document.querySelector('.deck')
 
 
 const ancientToggleClass = (event) => {
-    for(let i = 0; i < ancientGodsArray.length; i++) {
+    for (let i = 0; i < ancientGodsArray.length; i++) {
         ancientGodsArray[i].classList.remove('active')
     }
     let target = event.target;
@@ -28,10 +28,10 @@ const ancientToggleClass = (event) => {
         if (target.classList.contains('active')) {
             getAncientIndex(target);
 
-            
+
         }
     }
-    
+
 }
 ancientGods.onclick = function (event) {
     ancientToggleClass(event);
@@ -113,35 +113,37 @@ const sortedDeck = shuffleDeck(commonDeck);
 
 const difficultySelection = (event) => {
     let target = event.target;
-    let difficulty;
     const difficultyElements = document.querySelectorAll('.difficulty');
-    for(let i = 0; i < difficultyElements.length; i++) {
+    for (let i = 0; i < difficultyElements.length; i++) {
         difficultyElements[i].classList.remove('active')
     }
 
     if (target.classList.contains('difficulty')) {
         target.classList.add('active');
-        
+
         if (target.textContent === 'Very easy') {
             console.log('Сложность: очень лёгкая')
-            difficulty = 'very easy';
             veryEasyDiff()
+
         } else if (target.textContent === 'Easy') {
             console.log('Сложность: лёгкая')
             easyDiff();
+
         } else if (target.textContent === 'Medium') {
             console.log('Сложность: средняя')
             normalDiff();
+
         } else if (target.textContent === 'Hard') {
             console.log('Сложность: тяжелая')
             hardDiff();
+            
         } else if (target.textContent === 'Very hard') {
             console.log('Сложность: очень тяжелая')
             veryHardDiff();
         }
     }
 
-    return difficulty;
+
 }
 difficultyContainer.onclick = function (event) {
     difficultySelection(event);
