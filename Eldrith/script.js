@@ -45,21 +45,21 @@ ancientGods.onclick = function (event) {
 const getRestartSelectAncient = () => {
     clicks = 0;
     stageTrackCounter = 0;
-    if(!difficultyWrapper.classList.contains('hide')){
+    if (!difficultyWrapper.classList.contains('hide')) {
         difficultyWrapper.classList.add('hide')
     }
-    if(!deckElement.classList.contains('hide')) {
+    if (!deckElement.classList.contains('hide')) {
         deckElement.classList.add('hide')
     }
-    if(!shakeDeck.classList.contains('hide')){
+    if (!shakeDeck.classList.contains('hide')) {
         shakeDeck.classList.add('hide')
     }
     lastCard.style.backgroundImage = ``;
-    
+
 }
 
 const showDifficulty = () => {
-    
+
     difficultyWrapper.classList.remove('hide')
 }
 
@@ -189,7 +189,7 @@ const setDifficulty = () => {
     showDeck();
     difficultyWrapper.classList.add('hide');
     shakeDeck.classList.add('hide');
-    
+
     //Костыль убирающий актив у сложности
     const difficultyElements = document.querySelectorAll('.difficulty');
     for (let i = 0; i < difficultyElements.length; i++) {
@@ -203,9 +203,10 @@ const showDeck = () => {
 
 btnShake.addEventListener('click', setDifficulty);
 
-const sortedArray = []
+let sortedArray = []
 
 const veryEasyDiff = () => {
+    sortedArray = []
     console.log(`Правила: из набора берутся все карты со снежинками, если карт не хватает то добираются обычные карты`)
     let greenCounter = 0;
     let brownCounter = 0;
@@ -252,7 +253,7 @@ const veryEasyDiff = () => {
 }
 
 const easyDiff = () => {//Из набора убираются карты с щупальцами (difficulty: 'hard')
-
+    sortedArray = []
     sortedDeck.forEach((elem, i) => {
         if (sortedDeck[i].difficulty !== 'hard') {
             sortedArray.push(elem)
@@ -264,6 +265,7 @@ const easyDiff = () => {//Из набора убираются карты с щ�
 }
 
 const normalDiff = () => {
+    sortedArray = []
     console.log(`Правила: колода остаётся, как есть`)
     sortedDeck.forEach(elem => {
         sortedArray.push(elem)
@@ -273,6 +275,7 @@ const normalDiff = () => {
 }
 
 const hardDiff = () => {//remove cards with easy lvl.
+    sortedArray = []
     console.log(`Правила: из набора убираются карты со снежинками`);
     sortedDeck.forEach((elem, i) => {
         if (sortedDeck[i].difficulty !== 'easy') {
@@ -284,6 +287,7 @@ const hardDiff = () => {//remove cards with easy lvl.
 }
 
 const veryHardDiff = () => {
+    sortedArray = []
     console.log(`Правила: из набора берутся все карты со щупальцами, если карт не хватает то добираются обычные карты`);
     let greenCounter = 0;
     let brownCounter = 0;
@@ -332,6 +336,7 @@ const veryHardDiff = () => {
 
 
 const createColorsDeck = (array) => {
+
     const greenDeck = []
     const brownDeck = []
     const blueDeck = []
@@ -356,7 +361,10 @@ const createColorsDeck = (array) => {
 
     //Передаем в функцию 3 колоды и ещё раз сортируем их (перемешиваем)
     console.log(`разбил колоды по 3м цветам`);
-    setTimeout(createMiniDecks(shuffleDeck(greenDeck), shuffleDeck(brownDeck), shuffleDeck(blueDeck)), 2000)
+    console.log(greenDeck)
+    console.log(brownDeck)
+    console.log(blueDeck)
+    createMiniDecks(shuffleDeck(greenDeck), shuffleDeck(brownDeck), shuffleDeck(blueDeck))
 
 }
 
@@ -383,12 +391,10 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
         if (counterGreen < ancientsData[ancientIndex].firstStage.greenCards) {
             firstStageDeck.push(elem); //Возможно здесь можно было использовать метод .filter()? (Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.)
             counterGreen++;
-        }
-        if (counterGreen2 < ancientsData[ancientIndex].secondStage.greenCards) {
+        } else if (counterGreen2 < ancientsData[ancientIndex].secondStage.greenCards) {
             secondStageDeck.push(elem);
             counterGreen2++;
-        }
-        if (counterGreen3 < ancientsData[ancientIndex].thirdStage.greenCards) {
+        } else if (counterGreen3 < ancientsData[ancientIndex].thirdStage.greenCards) {
             thirdStageDeck.push(elem);
             counterGreen3++;
         }
@@ -399,12 +405,10 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
         if (counterBrown < ancientsData[ancientIndex].firstStage.brownCards) {
             firstStageDeck.push(elem);
             counterBrown++;
-        }
-        if (counterBrown2 < ancientsData[ancientIndex].secondStage.brownCards) {
+        } else if (counterBrown2 < ancientsData[ancientIndex].secondStage.brownCards) {
             secondStageDeck.push(elem);
             counterBrown2++;
-        }
-        if (counterBrown3 < ancientsData[ancientIndex].thirdStage.brownCards) {
+        } else if (counterBrown3 < ancientsData[ancientIndex].thirdStage.brownCards) {
             thirdStageDeck.push(elem);
             counterBrown3++;
         }
@@ -416,14 +420,10 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
         if (counterBlue < ancientsData[ancientIndex].firstStage.blueCards) {
             firstStageDeck.push(elem);
             counterBlue++;
-        }
-
-        if (counterBlue2 < ancientsData[ancientIndex].secondStage.blueCards) {
+        } else if (counterBlue2 < ancientsData[ancientIndex].secondStage.blueCards) {
             secondStageDeck.push(elem);
             counterBlue2++;
-        }
-
-        if (counterBlue3 < ancientsData[ancientIndex].thirdStage.blueCards) {
+        } else if (counterBlue3 < ancientsData[ancientIndex].thirdStage.blueCards) {
             thirdStageDeck.push(elem);
             counterBlue3++;
         }
