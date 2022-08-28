@@ -320,4 +320,10 @@ p {
     height: 371px;
     width: 204px;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.last-card:hover {
+    transform: scale(1.2);
+    transition: transform .5s;
 }
