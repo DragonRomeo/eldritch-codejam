@@ -145,22 +145,22 @@ const difficultySelection = (event) => {
 
         } else if (target.textContent === 'Easy') {
             console.log('Сложность: лёгкая')
-            easyDiff();
+            // easyDiff();
             difficulty = 'easy';
 
         } else if (target.textContent === 'Medium') {
             console.log('Сложность: средняя')
-            normalDiff();
+            // normalDiff();
             difficulty = 'normal';
 
         } else if (target.textContent === 'Hard') {
             console.log('Сложность: тяжелая')
-            hardDiff();
+            // hardDiff();
             difficulty = 'hard';
 
         } else if (target.textContent === 'Very hard') {
             console.log('Сложность: очень тяжелая')
-            veryHardDiff();
+            // veryHardDiff();
             difficulty = 'very hard';
         }
     }
