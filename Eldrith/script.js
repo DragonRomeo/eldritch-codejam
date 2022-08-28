@@ -248,7 +248,7 @@ const veryEasyDiff = () => {
             blueCounter++;
         }
     })
-    console.log(sortedArray)
+    // console.log(sortedArray)
     createColorsDeck(sortedArray)
 }
 
@@ -260,7 +260,7 @@ const easyDiff = () => {//Из набора убираются карты с щ�
         }
     })
     console.log(`Правила: Из набора убираются карты с щупальцами`)
-    console.log(sortedArray);
+    // console.log(sortedArray);
     createColorsDeck(sortedArray)
 }
 
@@ -270,7 +270,7 @@ const normalDiff = () => {
     sortedDeck.forEach(elem => {
         sortedArray.push(elem)
     })
-    console.log(sortedArray);
+    // console.log(sortedArray);
     createColorsDeck(sortedArray)
 }
 
@@ -282,7 +282,7 @@ const hardDiff = () => {//remove cards with easy lvl.
             sortedArray.push(elem)
         }
     })
-    console.log(sortedArray);
+    // console.log(sortedArray);
     createColorsDeck(sortedArray)
 }
 
@@ -330,7 +330,7 @@ const veryHardDiff = () => {
         }
     })
 
-    console.log(sortedArray)
+    // console.log(sortedArray)
     createColorsDeck(sortedArray)
 }
 
@@ -360,10 +360,10 @@ const createColorsDeck = (array) => {
     })
 
     //Передаем в функцию 3 колоды и ещё раз сортируем их (перемешиваем)
-    console.log(`разбил колоды по 3м цветам`);
-    console.log(greenDeck)
-    console.log(brownDeck)
-    console.log(blueDeck)
+    // console.log(`разбил колоды по 3м цветам`);
+    // console.log(greenDeck)
+    // console.log(brownDeck)
+    // console.log(blueDeck)
     createMiniDecks(shuffleDeck(greenDeck), shuffleDeck(brownDeck), shuffleDeck(blueDeck))
 
 }
@@ -385,7 +385,7 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     let counterBlue = 0;
     let counterBlue2 = 0;
     let counterBlue3 = 0;
-    console.log(`===================================`)
+    // console.log(`===================================`)
 
     greenDeck.forEach((elem, i) => {
         if (counterGreen < ancientsData[ancientIndex].firstStage.greenCards) {
@@ -430,10 +430,10 @@ const createMiniDecks = (greenDeck, brownDeck, blueDeck) => {
     }
     )
 
-    console.log(`1я 2я и 3я колода по этапам:`)
-    console.log(firstStageDeck)
-    console.log(secondStageDeck)
-    console.log(thirdStageDeck)
+    // console.log(`1я 2я и 3я колода по этапам:`)
+    // console.log(firstStageDeck)
+    // console.log(secondStageDeck)
+    // console.log(thirdStageDeck)
     //После этого эти колоды нужно будет перемешать и отправить в следующую функцию
     createDeckMyths(shuffleDeck(firstStageDeck), shuffleDeck(secondStageDeck), shuffleDeck(thirdStageDeck))
 
@@ -451,7 +451,7 @@ const createDeckMyths = (firstDeck, secondDeck, thirdDeck) => {
 
 const countClicks = () => {
     deckElement.onclick = clicks++;
-    console.log(clicks)
+    // console.log(clicks)
 }
 
 const pullCardFromDeck = () => {
