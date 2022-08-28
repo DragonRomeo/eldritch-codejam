@@ -44,7 +44,7 @@ p {
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    width: 33%;
+    width: 49%;
     height: 85%;
 }
 
@@ -74,6 +74,8 @@ p {
 .ancient-item.active {
     transition: 0.5s;
     border: 3px solid purple;
+    border: 10px groove rgb(255 89 247 / 20%);
+    border-radius: 13px;
 }
 
 .ancient-item:hover {
