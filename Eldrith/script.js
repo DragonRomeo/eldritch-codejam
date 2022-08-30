@@ -184,7 +184,7 @@ const setDifficulty = () => {
     } else if (difficulty === 'hard') {
         hardDiff()
     } else if (difficulty === 'very hard') {
-        veryEasyDiff();
+        veryHardDiff();
     }
     showDeck();
     difficultyWrapper.classList.add('hide');
